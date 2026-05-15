@@ -1,0 +1,7 @@
+project_name: "CoinMeta X Hot Follow Engine v0.1"
+db_path: "hot_follow.db"
+api_key: ""
+llm_base_url: ""
+llm_model: ""
+log_path: "logs/run.log"
+out_review_queue_path: "out/x_review_queue.md"

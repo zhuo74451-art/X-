@@ -1,0 +1,59 @@
+{
+  "version": "v0.2",
+  "query_builder": {
+    "max_queries": 5
+  },
+  "ranking": {
+    "min_best_sources": 1
+  },
+  "upgrade": {
+    "allow_upgrade_with_p0": true,
+    "allow_upgrade_with_two_p1": true,
+    "require_not_only_p2": true,
+    "max_missing_required_facts_for_queue_review": 1
+  },
+  "event_types": {
+    "stablecoin_policy": {
+      "required_facts": [
+        "原始报道链接",
+        "官方文件或央行原话",
+        "具体规则变化",
+        "影响对象：发行方/交易所/用户/支付机构"
+      ],
+      "not_required": ["链上地址", "链上看板", "巨鲸持仓", "清算价", "仓位截图"]
+    },
+    "crypto_regulation": {
+      "required_facts": ["原始报道链接", "官方文件/执法公告", "具体条款/处罚点", "受影响对象与时间表"],
+      "not_required": ["链上地址", "链上看板", "巨鲸持仓", "清算价", "仓位截图"]
+    },
+    "whale_onchain": {
+      "required_facts": ["地址或看板链接", "资产", "动作", "金额", "时间", "是否连续行为"],
+      "not_required": ["官方政策文件", "央行原话", "法院文件"]
+    },
+    "ai_crypto_story": {
+      "required_facts": ["原始报道链接", "当事人自述或采访", "可验证数字", "社区争议点"],
+      "not_required": ["链上看板", "链上地址"]
+    },
+    "security_incident": {
+      "required_facts": ["原始通报/公告链接", "受影响范围与损失金额", "是否已修复/处置", "用户影响与风险提示"],
+      "not_required": ["央行原话", "官方政策文件"]
+    },
+    "macro_market": {
+      "required_facts": ["数据来源", "时间范围", "是否历史极值", "与价格/流动性/风险资产的关系"],
+      "not_required": ["链上地址", "链上看板"]
+    },
+    "exchange_risk": {
+      "required_facts": ["交易所官方公告或权威报道", "用户资产/提现影响", "时间线与处置进展"],
+      "not_required": ["央行原话", "官方政策文件"]
+    },
+    "product_update": {
+      "required_facts": ["官方发布链接", "关键变更点", "影响对象与上线节奏"],
+      "not_required": ["链上看板", "链上地址"]
+    },
+    "unknown": {
+      "required_facts": ["原始报道链接", "关键事实与数字", "用户影响/市场含义"],
+      "not_required": []
+    }
+  }
+}
+

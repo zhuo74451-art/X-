@@ -1,0 +1,93 @@
+{
+  "A": {
+    "route": "A",
+    "name": "观点表达 / 阵营冲突 / 拟人化社论图",
+    "best_for": ["对立争议", "观点冲突", "阵营叙事"],
+    "not_for": ["链上数据卡", "纯公告", "纯参数说明"],
+    "scoring_keywords": ["vs", "对立", "互怼", "阵营", "争议"],
+    "default_x_size": "4:5",
+    "style_profile": "A",
+    "prompt_template": "A_opinion_meme.md"
+  },
+  "B": {
+    "route": "B",
+    "name": "百科信息图 / 一图看懂 / 知识解释型海报",
+    "best_for": ["机制解释", "流程拆解", "一图看懂"],
+    "not_for": ["法律传闻", "情绪封面", "链上仓位快卡"],
+    "scoring_keywords": ["什么是", "一图看懂", "机制", "原理", "架构", "流程", "组成", "步骤"],
+    "default_x_size": "4:5",
+    "style_profile": "B",
+    "prompt_template": "B_explainer_infographic.md"
+  },
+  "C": {
+    "route": "C",
+    "name": "奇幻图鉴 / 收藏型设定海报",
+    "best_for": ["设定海报", "收藏型栏目", "世界观"],
+    "not_for": ["严肃新闻", "监管法律", "链上数据"],
+    "scoring_keywords": ["图鉴", "物种", "世界观", "设定", "奇幻", "节日"],
+    "default_x_size": "4:5",
+    "style_profile": "C",
+    "prompt_template": "C_fantasy_catalog.md"
+  },
+  "D": {
+    "route": "D",
+    "name": "数据信息卡 / 金融终端风",
+    "best_for": ["链上数据", "巨鲸", "行情异动", "多条数字"],
+    "not_for": ["法律传闻", "产品说明", "情绪封面"],
+    "scoring_keywords": ["巨鲸", "链上", "钱包", "地址", "持仓", "清算", "多单", "空单", "BTC", "ETH", "USDT", "USDC"],
+    "default_x_size": "4:5",
+    "style_profile": "D",
+    "prompt_template": "D_data_card.md"
+  },
+  "E": {
+    "route": "E",
+    "name": "国家剪影拼贴 / 地缘政治叙事封面",
+    "best_for": ["地缘叙事", "宏观政策", "区域影响"],
+    "not_for": ["产品说明", "链上仓位细节"],
+    "scoring_keywords": ["国家", "地区", "北京", "美国", "香港", "中东", "欧洲", "政策", "地缘", "宏观", "监管"],
+    "default_x_size": "4:5",
+    "style_profile": "E",
+    "prompt_template": "E_geo_cover.md"
+  },
+  "F": {
+    "route": "F",
+    "name": "360 全景空间 / 沉浸式漫游",
+    "best_for": ["空间叙事", "漫游工作流", "沉浸式展示"],
+    "not_for": ["快讯速读", "日常栏目卡"],
+    "scoring_keywords": ["360", "全景", "漫游", "虚拟展厅", "空间"],
+    "default_x_size": "16:9",
+    "style_profile": "F",
+    "prompt_template": "F_pano_workflow.md"
+  },
+  "G": {
+    "route": "G",
+    "name": "液态玻璃 Bento / 产品说明卡",
+    "best_for": ["产品更新", "工具说明", "参数对比"],
+    "not_for": ["法律传闻", "纯地缘叙事"],
+    "scoring_keywords": ["产品", "工具", "平台", "功能", "使用", "适合", "指标", "参数", "兼容", "价格"],
+    "default_x_size": "4:5",
+    "style_profile": "G",
+    "prompt_template": "G_bento_product.md"
+  },
+  "H": {
+    "route": "H",
+    "name": "平台 UI 样机 / 社交互动叠层",
+    "best_for": ["直播", "AMA", "评论互动", "社区活动"],
+    "not_for": ["链上仓位卡", "严肃法律封面"],
+    "scoring_keywords": ["直播", "AMA", "评论", "用户提问", "互动", "社区"],
+    "default_x_size": "4:5",
+    "style_profile": "H",
+    "prompt_template": "H_ui_mock.md"
+  },
+  "I": {
+    "route": "I",
+    "name": "情绪概念摄影 / 思维可视化",
+    "best_for": ["法律传闻", "宏观不确定性", "调查感封面"],
+    "not_for": ["链上数据卡", "产品说明卡"],
+    "scoring_keywords": ["法院", "法官", "律师", "取证", "传唤", "诉讼", "案件", "陈词", "据称", "传闻", "尚未确认", "仍待确认", "变数"],
+    "default_x_size": "4:5",
+    "style_profile": "I",
+    "prompt_template": "I_concept_cover.md"
+  }
+}
+

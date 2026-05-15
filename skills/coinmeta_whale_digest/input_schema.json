@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "actor_daily_pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["column_name", "time_window", "generated_at", "actors"],
+  "properties": {
+    "column_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "time_window": {
+      "type": "string",
+      "description": "例如：2026-05-14 00:00-24:00 UTC 或 2026-05-14T00:00:00Z/2026-05-14T23:59:59Z"
+    },
+    "generated_at": {
+      "type": "string",
+      "description": "ISO 8601 time"
+    },
+    "actors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "actor_label",
+          "actor_type",
+          "why_selected",
+          "actions_count",
+          "main_assets",
+          "net_direction",
+          "net_amount_usd",
+          "realized_pnl_usd",
+          "unrealized_pnl_change_usd",
+          "risk_change",
+          "summary_line",
+          "notable_actions",
+          "source_links",
+          "confidence",
+          "do_not_claim"
+        ],
+        "properties": {
+          "actor_label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "actor_type": {
+            "type": "string",
+            "enum": ["celebrity_trader", "whale", "smart_money", "institution_related", "unknown"]
+          },
+          "why_selected": {
+            "type": "string",
+            "minLength": 1
+          },
+          "actions_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "main_assets": {
+            "type": "array",
+            "items": { "type": "string", "minLength": 1 },
+            "minItems": 0
+          },
+          "net_direction": {
+            "type": "string",
+            "enum": ["net_buy", "net_sell", "rotate", "add_leverage", "reduce_risk", "unclear"]
+          },
+          "net_amount_usd": {
+            "type": "number"
+          },
+          "realized_pnl_usd": {
+            "type": "number"
+          },
+          "unrealized_pnl_change_usd": {
+            "type": "number"
+          },
+          "risk_change": {
+            "type": "string",
+            "enum": ["higher", "lower", "unchanged", "unclear"]
+          },
+          "summary_line": {
+            "type": "string",
+            "minLength": 1,
+            "description": "一行总结：这个 actor 今天整体在干嘛"
+          },
+          "notable_actions": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 0,
+            "description": "可核验的关键动作摘要，不要塞完整流水账"
+          },
+          "source_links": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 0,
+            "description": "来源链接（链上/看板/原帖/媒体）"
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["strong", "medium", "weak"]
+          },
+          "do_not_claim": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 0,
+            "description": "明确禁止在正文中写成确定事实的点"
+          }
+        }
+      }
+    }
+  }
+}
+

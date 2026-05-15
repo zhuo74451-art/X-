@@ -1,0 +1,11 @@
+{
+  "coinmeta_newsflash_local": {
+    "base_url": "http://43.98.174.247:8001",
+    "ready_path": "/api/integration/ready",
+    "published_path": "/api/integration/published",
+    "item_path": "/api/integration/items/{tweet_id}",
+    "default_limit": 100,
+    "enabled": true
+  }
+}
+

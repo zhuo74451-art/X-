@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "coinmeta_whale_digest_output",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "main_post",
+    "first_comment",
+    "visual_prompt",
+    "editor_risk_note",
+    "need_fact_check",
+    "weak_points"
+  ],
+  "properties": {
+    "main_post": {
+      "type": "string",
+      "description": "栏目主帖：总结今天巨鲸整体在干嘛，避免流水账"
+    },
+    "first_comment": {
+      "type": "string",
+      "description": "首评补充：补风险边界/可核验点/观察指标"
+    },
+    "visual_prompt": {
+      "type": "string",
+      "description": "配图提示：信息图/看板截图方向，不生成图片"
+    },
+    "editor_risk_note": {
+      "type": "string",
+      "description": "编辑风控提示：哪些句子容易被误解、哪些点需要措辞"
+    },
+    "need_fact_check": {
+      "type": "boolean",
+      "description": "是否需要补充事实核验"
+    },
+    "weak_points": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "信息缺口列表（缺链上链接/缺地址/缺截图/来源二手等）"
+    }
+  }
+}
+

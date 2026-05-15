@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "event_pack",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["event_cluster_id", "cluster_title", "cluster_queue"],
+  "properties": {
+    "event_cluster_id": { "type": "string", "minLength": 1 },
+    "cluster_title": { "type": "string" },
+    "cluster_queue": { "type": "string", "enum": ["queue_review", "source_research"] },
+    "topic_priority": { "type": "string" },
+    "audience_reach_score": { "type": "integer" },
+    "risk_level": { "type": "string" },
+    "best_source_url": { "type": "string" },
+    "source_urls": { "type": "array", "items": { "type": "string" } },
+    "source_names": { "type": "array", "items": { "type": "string" } },
+    "included_tweet_ids": { "type": "array", "items": { "type": "string" } },
+    "raw_summary": { "type": "string" },
+    "missing_facts": { "type": "array", "items": { "type": "string" } },
+    "rule_reason": { "type": "string" },
+    "event_cluster": { "type": "object", "additionalProperties": true },
+    "fact_pack": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "event_type": { "type": "string" },
+        "core_claim": { "type": "string" },
+        "best_sources": { "type": "array" },
+        "confirmed_facts": { "type": "array" },
+        "unconfirmed_claims": { "type": "array" },
+        "missing_facts": { "type": "array" },
+        "timeline": { "type": "array" },
+        "related_context": { "type": "array" },
+        "angle_candidates": { "type": "array" },
+        "source_risk": { "type": "string" },
+        "upgrade_recommendation": { "type": "string" },
+        "reason": { "type": "string" }
+      }
+    }
+  }
+}
+

@@ -1,0 +1,239 @@
+[
+  {
+    "input_type": "coinmeta_newsflash",
+    "source_tool": "coinmeta",
+    "source_name": "CoinMeta 快讯",
+    "source_url": "",
+    "raw_text": "【快讯】某头部交易所宣布下调现货手续费并上线「一键批量撤单」功能，称将改善高频交易体验。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：不要复读公告，写成中文 X 用户能感受到的变化：成本、滑点、策略、行为变化。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "coinmeta_newsflash",
+    "source_tool": "coinmeta",
+    "source_name": "CoinMeta 快讯",
+    "source_url": "",
+    "raw_text": "【快讯】某 L2 宣布开放指标面板（活跃地址、日交易数、失败率）并称确认延迟下降。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：不要写成技术说明书，重点翻译成「用户体验」与「真实活跃是否更透明」。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "coinmeta_newsflash",
+    "source_tool": "coinmeta",
+    "source_name": "CoinMeta 快讯",
+    "source_url": "",
+    "raw_text": "【快讯】某热门 Meme 项目宣布更换合约并引导用户迁移，链上出现集中转移与流动性重配。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：只写已知事实与风险边界，强调「迁移期最容易被误读/被钓鱼」。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "coinmeta_newsflash",
+    "source_tool": "coinmeta",
+    "source_name": "CoinMeta 快讯",
+    "source_url": "",
+    "raw_text": "【快讯】某钱包应用上线「地址风险提示」与「授权一键清理」入口。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：用用户视角写：少踩坑、少被盗、授权管理的真实成本。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "coinmeta_newsflash",
+    "source_tool": "coinmeta",
+    "source_name": "CoinMeta 快讯",
+    "source_url": "",
+    "raw_text": "【快讯】某公链宣布将 Gas 机制调整为更平滑的费用曲线，称可降低高峰期失败交易。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：不要讲参数，讲「高峰期失败交易/卡死」对普通用户的影响与观察点。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+
+  {
+    "input_type": "authority_post",
+    "source_tool": "x",
+    "source_name": "Lookonchain",
+    "source_url": "",
+    "raw_text": "Lookonchain：某巨鲸地址在过去 12 小时内将一批资产分批转入交易所，并在链上出现多次小额测试转账。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：把它当「行为信号」解释，不要写成确定砸盘，不要价格预测。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "authority_post",
+    "source_tool": "x",
+    "source_name": "Arkham",
+    "source_url": "",
+    "raw_text": "Arkham 标注：某机构相关地址新增一批稳定币入金，并与多个 OTC/做市相关地址发生交互。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：解释它可能意味着「流动性准备/做市活动」而非直接利好利空。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "authority_post",
+    "source_tool": "x",
+    "source_name": "Whale Alert",
+    "source_url": "",
+    "raw_text": "Whale Alert：一笔大额稳定币跨链转移完成，目标链上的 DeFi 头部池子出现流动性变化。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：强调「钱去哪/为什么去」与后续观察指标，不要把相关性写成因果。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+
+  {
+    "input_type": "quick_data",
+    "source_tool": "glassnode",
+    "source_name": "Glassnode 数据摘要",
+    "source_url": "",
+    "raw_text": "数据：BTC 长期持有者供应占比上升，短期持有者活跃下降，交易所余额继续走低。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：把数据翻译成用户能懂的「市场结构变化」与「别急着下结论」。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "quick_data",
+    "source_tool": "etf",
+    "source_name": "ETF 资金流观察",
+    "source_url": "",
+    "raw_text": "数据：某主流现货 ETF 连续两日净流出，但单日成交额仍处高位。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：不要写成利好/利空，写成「情绪与流动性的二级信号」。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "quick_data",
+    "source_tool": "derivatives",
+    "source_name": "衍生品看板",
+    "source_url": "",
+    "raw_text": "数据：某交易对资金费率持续为正但未创新高，清算量集中在短时间窗口。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：讲清楚「拥挤度/杠杆风险」的边界，避免给交易建议。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "IEA月报 + 莫迪车队新闻组合",
+    "source_url": "",
+    "raw_text": "IEA 月报称，受伊朗战争影响，2026 年全球石油供应预计减少约 390 万桶/日，全球石油库存正以创纪录速度下降。另据报道，在能源价格上涨和外汇压力背景下，印度总理莫迪据称已缩减车队规模以节省燃油。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：把宏观能源数据和现实动作结合起来：让用户意识到压力从月报数字坍缩到现实排场。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "宏观数据 + 民生账单场景",
+    "source_url": "",
+    "raw_text": "某国公布通胀数据再度反弹，市场上调利率预期。与此同时，多家本地媒体报道家庭电费与食品价格账单明显变厚，部分零售商开始调整促销与备货节奏。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：把「通胀/利率」翻译成「账单/成本/压力测试」，并给出二级市场读法（风险偏好/流动性）。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "供应链 + 运输动作场景",
+    "source_url": "",
+    "raw_text": "红海航线持续紧张，多家航运公司调整航线并减少班次。外贸企业反馈部分航班减少、货柜费用上涨，库存策略开始偏保守。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：把「地缘/供应链」坍缩成企业动作，并用二级读法讲风险资产估值环境。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+
+  {
+    "input_type": "visual_sample",
+    "source_tool": "x",
+    "source_name": "视频热点（链上梗图）",
+    "source_url": "",
+    "raw_text": "一段短视频在社区传播：把「链上授权」拍成一键开门的钥匙，最后钥匙丢了导致家门大开，评论区大量讨论授权风险与钓鱼。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：写成「人话风险提醒」，不要恐吓，但要让用户愿意收藏转发。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "visual_sample",
+    "source_tool": "x",
+    "source_name": "图片热点（数据截图）",
+    "source_url": "",
+    "raw_text": "一张截图在流传：某链上应用的活跃用户曲线突然断崖式下滑，社区开始争论「叙事降温 vs 数据口径变化」。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：不要站队，先教用户怎么看口径/确认信号，再给一个克制判断。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+
+  {
+    "input_type": "controversy",
+    "source_tool": "manual",
+    "source_name": "争议观察",
+    "source_url": "",
+    "raw_text": "社区流传某项目核心成员疑似套现的说法，但没有明确链上证据或官方说明，讨论情绪升温。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：只能写「已知/未知/待确认」，并提醒风险边界，不能下结论。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "controversy",
+    "source_tool": "manual",
+    "source_name": "争议观察",
+    "source_url": "",
+    "raw_text": "某交易所出现「暂停提币」传闻，截图来源不明，评论区开始扩散恐慌。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "测试目标：高风险，只能监控口径，给用户自查清单，不要制造恐慌。",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+
+  {
+    "input_type": "junk",
+    "source_tool": "manual",
+    "source_name": "营销垃圾",
+    "source_url": "",
+    "raw_text": "空投来啦！私信我进群，保证稳赚不赔，最后一班车，冲 1000x！",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "junk",
+    "source_tool": "manual",
+    "source_name": "营销垃圾",
+    "source_url": "",
+    "raw_text": "某项目「官方」称今晚公布重大利好，先买再说，错过后悔。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "kol_post",
+    "source_tool": "x",
+    "source_name": "交易员KOL（仅热度信号）",
+    "source_url": "",
+    "raw_text": "某 KOL 称「某项目马上要上大所，内部消息已经确认」，评论区开始扩散，但未提供任何官方链接或链上证据。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  }
+]

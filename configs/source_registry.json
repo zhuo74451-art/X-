@@ -1,0 +1,158 @@
+{
+  "version": "v0.1",
+  "sources": [
+    {
+      "name": "official",
+      "domain": "",
+      "tier": "P0",
+      "source_score": 95,
+      "use_case": "官方公告/博客/白皮书/项目声明",
+      "notes": "优先引用原文链接"
+    },
+    {
+      "name": "court_filing",
+      "domain": "",
+      "tier": "P0",
+      "source_score": 95,
+      "use_case": "法院文件/庭审材料",
+      "notes": "优先引用 docket/法院网站"
+    },
+    {
+      "name": "sec",
+      "domain": "sec.gov",
+      "tier": "P0",
+      "source_score": 98,
+      "use_case": "SEC 文件/公告",
+      "notes": "优先链接原始 PDF/公告页"
+    },
+    {
+      "name": "cftc",
+      "domain": "cftc.gov",
+      "tier": "P0",
+      "source_score": 98,
+      "use_case": "CFTC 文件/公告",
+      "notes": "优先链接原始公告"
+    },
+    {
+      "name": "federal_reserve",
+      "domain": "federalreserve.gov",
+      "tier": "P0",
+      "source_score": 98,
+      "use_case": "美联储官方文件/讲话/数据",
+      "notes": ""
+    },
+    {
+      "name": "bank_of_england",
+      "domain": "bankofengland.co.uk",
+      "tier": "P0",
+      "source_score": 96,
+      "use_case": "英央行官方文件/讲话/数据",
+      "notes": ""
+    },
+    {
+      "name": "reuters",
+      "domain": "reuters.com",
+      "tier": "P0",
+      "source_score": 95,
+      "use_case": "权威新闻线索（优先原文）",
+      "notes": ""
+    },
+    {
+      "name": "bloomberg",
+      "domain": "bloomberg.com",
+      "tier": "P0",
+      "source_score": 95,
+      "use_case": "权威新闻线索（优先原文）",
+      "notes": ""
+    },
+    {
+      "name": "kucoin",
+      "domain": "kucoin.com",
+      "tier": "P0",
+      "source_score": 92,
+      "use_case": "交易所官方公告",
+      "notes": "仅用于识别官方公告页的来源权重"
+    },
+    {
+      "name": "coindesk",
+      "domain": "coindesk.com",
+      "tier": "P1",
+      "source_score": 88,
+      "use_case": "加密一手报道/采访",
+      "notes": ""
+    },
+    {
+      "name": "theblock",
+      "domain": "theblock.co",
+      "tier": "P1",
+      "source_score": 86,
+      "use_case": "加密一手报道",
+      "notes": ""
+    },
+    {
+      "name": "cointelegraph",
+      "domain": "cointelegraph.com",
+      "tier": "P1",
+      "source_score": 82,
+      "use_case": "加密报道（需交叉印证）",
+      "notes": ""
+    },
+    {
+      "name": "ft",
+      "domain": "ft.com",
+      "tier": "P1",
+      "source_score": 90,
+      "use_case": "金融媒体报道",
+      "notes": ""
+    },
+    {
+      "name": "wsj",
+      "domain": "wsj.com",
+      "tier": "P1",
+      "source_score": 90,
+      "use_case": "金融媒体报道",
+      "notes": ""
+    },
+    {
+      "name": "x_kol",
+      "domain": "x.com",
+      "tier": "P2",
+      "source_score": 30,
+      "use_case": "二手传播/观点",
+      "notes": "不可单独作为升级 queue_review 的依据"
+    },
+    {
+      "name": "telegram",
+      "domain": "t.me",
+      "tier": "P2",
+      "source_score": 25,
+      "use_case": "二手传播/截图转述",
+      "notes": "不可单独作为升级 queue_review 的依据"
+    },
+    {
+      "name": "jin10",
+      "domain": "jin10.com",
+      "tier": "P2",
+      "source_score": 35,
+      "use_case": "二手聚合快讯（需回溯一手来源）",
+      "notes": "仅当能回溯 Reuters/Bloomberg/官方文件时才可升级"
+    },
+    {
+      "name": "webhook",
+      "domain": "",
+      "tier": "P2",
+      "source_score": 20,
+      "use_case": "二手聚合源",
+      "notes": "不可单独作为升级 queue_review 的依据"
+    },
+    {
+      "name": "watcherguru",
+      "domain": "watcher.guru",
+      "tier": "P2",
+      "source_score": 25,
+      "use_case": "二手聚合源",
+      "notes": "不可单独作为升级 queue_review 的依据"
+    }
+  ]
+}
+

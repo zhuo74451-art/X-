@@ -1,0 +1,44 @@
+{
+  "max_posts_per_day": 3,
+  "max_whale_digest_per_day": 1,
+  "min_minutes_between_posts": 45,
+  "allowed_queues": ["queue_review", "whale_digest"],
+  "no_link_default": true,
+  "require_source_anchor": true,
+  "blocked_keywords": [
+    "法院",
+    "法官",
+    "起诉",
+    "调查",
+    "黑客",
+    "被盗",
+    "制裁",
+    "战争",
+    "爆炸",
+    "恐袭",
+    "监管处罚",
+    "交易所风险",
+    "匿名知情人士",
+    "涉嫌",
+    "违法"
+  ],
+  "investment_advice_keywords": [
+    "建议买入",
+    "建议卖出",
+    "可以跟",
+    "跟单",
+    "抄作业",
+    "稳赚",
+    "必涨",
+    "必跌",
+    "无风险"
+  ],
+  "high_risk_topics": [
+    "法律/庭审",
+    "监管处罚",
+    "黑客/被盗",
+    "交易所风险",
+    "战争/制裁/地缘冲突"
+  ]
+}
+
