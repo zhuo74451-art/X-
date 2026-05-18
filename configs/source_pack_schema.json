@@ -1,0 +1,32 @@
+{
+  "event_title": "",
+  "cluster_id": "",
+  "selected_queue": "source_research",
+  "search_queries": [],
+  "candidate_sources": [
+    {
+      "title": "",
+      "url": "",
+      "domain": "",
+      "published_at": "",
+      "snippet": "",
+      "source_tier": "P0",
+      "match_score": 0,
+      "reason": ""
+    }
+  ],
+  "best_source_url": "",
+  "best_source_tier": "",
+  "verification_status": "mocked",
+  "can_promote_to_queue_review": false,
+  "why": "",
+  "checked_at": "",
+  "search_provider": "mock",
+  "model_runtime": "mock",
+  "cost_estimate": {
+    "search_calls": 0,
+    "input_tokens_est": 0,
+    "output_tokens_est": 0,
+    "estimated_usd": 0
+  }
+}

@@ -1,0 +1,112 @@
+[
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "Reuters",
+    "source_url": "https://www.reuters.com/technology/offline-openai-1",
+    "raw_text": "OpenAI 发布更新：新增一项安全控制，限制高风险场景的输出边界。对用户来说是账户与成本的变化：哪些功能可用、哪些需要更严格校验，使用风险怎么控。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "WSJ",
+    "source_url": "https://www.wsj.com/news/offline-musk-2",
+    "raw_text": "马斯克相关争议进入新阶段：围绕平台治理与合规问题出现新的法律进展。对用户来说不是吃瓜，而是风险边界：账户规则是否会变、哪些行为成本会提高。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "Reuters",
+    "source_url": "https://www.reuters.com/world/us/offline-trump-3",
+    "raw_text": "特朗普在一次公开讲话中提到对科技监管的方向可能调整。对市场更重要的是风险偏好与资金成本预期的变化：它如何影响资产价格定价，而不是口号本身。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "quick_data",
+    "source_tool": "coindesk",
+    "source_name": "CoinDesk",
+    "source_url": "https://www.coindesk.com/markets/offline-binance-4",
+    "raw_text": "币安用户侧风控提示增加：更多账户触发额外校验与异常登录确认。对用户来说是风险与成本：安全门槛上升会影响哪些操作、如何降低误伤概率。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "SEC",
+    "source_url": "https://www.sec.gov/news/offline-sec-5",
+    "raw_text": "SEC 发布一份与平台合规相关的指导文件。对用户影响点是风险提示与账户规则：信息披露、资金隔离、以及哪些行为可能被严格审查。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "quick_data",
+    "source_tool": "theblock",
+    "source_name": "The Block",
+    "source_url": "https://www.theblock.co/post/offline-btc-6",
+    "raw_text": "BTC 相关市场结构出现变化：流动性更集中，风险偏好波动加大。对普通用户最重要的是别把短线波动当结论，关注资金成本与风险管理。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "quick_data",
+    "source_tool": "coindesk",
+    "source_name": "CoinDesk",
+    "source_url": "https://www.coindesk.com/markets/offline-eth-7",
+    "raw_text": "ETH 生态出现新的费用与使用体验讨论。对用户更关键的是实际成本与风险：哪些操作会更贵、哪些路径更省钱，以及如何避免被误导。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "Reuters",
+    "source_url": "https://www.reuters.com/technology/offline-hack-8",
+    "raw_text": "黑客相关事件引发关注：多方提醒用户提高账户安全级别并减少不必要的授权风险。对用户来说重点是风险提示与自查清单，而不是渲染恐慌。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "FT",
+    "source_url": "https://www.ft.com/content/offline-stablecoin-9",
+    "raw_text": "稳定币监管出现新动向。对用户来说关键是资金安全与成本：哪些平台会调整规则、支付与充值/提现流程是否会更严格，风险边界在哪里。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "Bloomberg",
+    "source_url": "https://www.bloomberg.com/news/offline-fed-10",
+    "raw_text": "美联储口径变化导致市场重新定价资金成本。对风险资产的影响在于流动性与风险偏好变化：资产价格如何被重新定价，用户该关注哪些确认信号。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  }
+]

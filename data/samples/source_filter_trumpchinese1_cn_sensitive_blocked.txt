@@ -1,0 +1,9 @@
+source: @trumpchinese1
+display_name: 特朗普中文推特
+
+这是一条测试样本，文本包含习近平，用于验证中国国内敏感政治过滤。
+
+expected:
+- source_filter_status: blocked
+- block_reason_contains: cn_sensitive_politics
+- must_not_enter: hot_engine | content_generation | visual_generation

@@ -139,10 +139,6 @@ WHALE_KEYWORDS = [
     "arkham",
     "whale alert",
     "hyperliquid",
-    "bybit",
-    "okx",
-    "binance",
-    "upbit",
 ]
 
 WHALE_ASSET_HINTS = [
@@ -211,7 +207,75 @@ def _is_whale_candidate(text: str) -> bool:
     t = (text or "").lower()
     if ("claude" in t or "chatbot" in t) and any(k in t for k in ["找回", "恢复"]) and any(k in t for k in ["seed phrase", "wallet.dat", "助记词"]):
         return False
-    return any(k in t for k in WHALE_KEYWORDS)
+
+    exchange_only_context = ["binance", "okx", "bybit", "coinbase", "kraken", "gate", "kucoin", "upbit"]
+    if any(x in t for x in exchange_only_context) and not any(k in t for k in ["巨鲸", "whale", "链上", "on-chain", "0x", "地址", "钱包"]):
+        return False
+
+    a_onchain = [
+        "巨鲸",
+        "whale",
+        "钱包",
+        "wallet",
+        "地址",
+        "address",
+        "0x",
+        "链上",
+        "on-chain",
+        "arkham",
+        "lookonchain",
+        "whale alert",
+    ]
+    b_behavior = [
+        "转入",
+        "转出",
+        "deposit",
+        "withdraw",
+        "存入",
+        "提币",
+        "入金",
+        "出金",
+        "accumulation",
+        "bought",
+        "sold",
+        "long",
+        "short",
+        "liquidation",
+        "清算",
+        "爆仓",
+        "强平",
+        "建仓",
+        "平仓",
+        "加仓",
+        "减仓",
+        "补保证金",
+        "追加保证金",
+        "仓位",
+        "杠杆",
+    ]
+    c_assets_or_amounts = [
+        "btc",
+        "eth",
+        "usdt",
+        "usdc",
+        "sol",
+        "million",
+        "billion",
+        "万美元",
+        "亿美元",
+        "万",
+        "亿",
+        "枚",
+        "颗",
+    ]
+
+    has_a = any(x in t for x in a_onchain)
+    has_b = any(x in t for x in b_behavior)
+    has_asset = any(a in t for a in WHALE_ASSET_HINTS)
+    has_amount = bool(re.search(r"\d", t)) and any(x in t for x in c_assets_or_amounts)
+    has_c = has_asset or has_amount
+
+    return bool(has_a and (has_b or has_c) and any(k in t for k in WHALE_KEYWORDS))
 
 
 def _extract_address(text: str) -> str:
@@ -452,9 +516,51 @@ def evaluate_event(cluster: dict[str, Any]) -> dict[str, Any]:
     total_score = _clamp(round((source_score + fact_score + heat_score + content_score + angle_score) / 5))
 
     jargon_heavy = any(k in text for k in JARGON_PENALTY)
-    macro_plain = any(k in text for k in ["央行", "副行长", "审议委员", "政策"]) and not any(
-        k in text for k in ["法院", "飞机", "账单", "车队", "交易所", "钱包"]
+    platform_policy = any(
+        k in text
+        for k in [
+            "账户政策",
+            "平台政策",
+            "用户政策",
+            "服务条款",
+            "活动规则",
+            "社区规则",
+        ]
     )
+    macro_context = any(
+        k in text
+        for k in [
+            "美联储",
+            "fed",
+            "利率",
+            "cpi",
+            "pce",
+            "非农",
+            "通胀",
+            "sec",
+            "cftc",
+            "etf",
+            "监管",
+            "stablecoin",
+            "国会",
+            "法案",
+            "白宫",
+            "treasury",
+            "ofac",
+            "ustr",
+            "中美",
+            "出口管制",
+            "芯片",
+            "h200",
+            "关税",
+            "贸易",
+            "制裁",
+            "宏观",
+            "地缘",
+            "政策冲击",
+        ]
+    )
+    macro_plain = bool(macro_context and (not platform_policy) and (not _has_user_connection(text)))
     plain_announcement = any(k in text for k in ["公告", "宣布", "上线", "更新", "参数调整", "维护"]) and not _has_user_connection(text)
     plain_research = any(k in text for k in ["研报", "研究员", "报告"]) and not any(k in text for k in ["链上", "地址", "清算", "交易所"])
 

@@ -356,11 +356,11 @@ def route_visual_type(facts: dict[str, Any], input_text: str, forced_route: str 
             scores["I"] += 3
             reasons.append("命中法律/法院/传唤等不确定性关键词（I +3）")
         if risk_terms:
-            scores["I"] += 2
-            reasons.append("命中传闻/未确认类措辞（I +2）")
+            scores["I"] += 1
+            reasons.append("命中传闻/未确认类措辞（I +1）")
         if market_terms:
-            scores["I"] += 2
-            reasons.append("命中宏观/趋势/监管类议题（I +2）")
+            scores["I"] += 1
+            reasons.append("命中宏观/趋势/监管类议题（I +1）")
         if any(x in input_text for x in ["问题是", "反常", "灰区", "变数", "仍待确认"]):
             scores["I"] += 1
             reasons.append("命中文本不确定性叙事（I +1）")
@@ -371,6 +371,25 @@ def route_visual_type(facts: dict[str, Any], input_text: str, forced_route: str 
         if any(x in input_text for x in ["政策", "地缘", "宏观", "监管"]):
             scores["E"] += 2
             reasons.append("命中政策/地缘/监管（E +2）")
+
+    e_policy_keys = ["访华", "中美", "中国企业", "出口", "获批", "政策"]
+    e_chip_keys = ["芯片", "H200", "黄仁勋", "NVDA", "NVIDIA"]
+    e_market_keys = ["股价", "涨幅", "赢家", "排名", "富翁"]
+    if any(k in input_text for k in e_policy_keys):
+        scores["E"] += 3
+        reasons.append("命中访华/中美/政策/获批等地缘商业要素（E +3）")
+    if any(k in input_text for k in e_chip_keys):
+        scores["E"] += 3
+        reasons.append("命中芯片/H200/黄仁勋/NVDA 等科技政策要素（E +3）")
+    if any(k in input_text for k in e_market_keys):
+        scores["E"] += 2
+        reasons.append("命中股价/涨幅/赢家榜等市场对照（E +2）")
+
+    company_keys = ["NVDA", "NVIDIA", "Meta", "高盛", "贝莱德", "苹果", "特斯拉"]
+    hit_companies = [k for k in company_keys if k in input_text]
+    if len(hit_companies) >= 2:
+        scores["E"] += 1
+        reasons.append("命中多家公司名称对照（E +1）")
 
     if any(x in input_text for x in ["直播", "AMA", "评论", "用户提问", "互动", "社区"]):
         scores["H"] += 3
@@ -389,7 +408,7 @@ def route_visual_type(facts: dict[str, Any], input_text: str, forced_route: str 
         reasons.append("命中全景/空间/漫游（F +3）")
 
     selected = max(scores.items(), key=lambda kv: (kv[1], kv[0]))[0]
-    if selected == "E" and scores["I"] >= scores["E"]:
+    if selected == "E" and scores["I"] >= scores["E"] and legal_terms:
         selected = "I"
 
     if selected != "D":
@@ -431,7 +450,7 @@ def classify_visual_risk(facts: dict[str, Any], route: str) -> dict[str, Any]:
         flags.append("unconfirmed_claim")
         guardrails.append("画面需要保留“待确认/不确定性”氛围，不要下结论")
 
-    logo_keywords = {"OpenAI", "Tesla", "SpaceX", "Binance", "Coinbase"}
+    logo_keywords = {"OpenAI", "Tesla", "SpaceX", "Binance", "Coinbase", "NVIDIA", "NVDA", "Meta", "Apple"}
     if any(x in entities for x in logo_keywords):
         flags.append("logo_risk")
         guardrails.append("不要使用任何公司/交易所 Logo")
@@ -439,6 +458,12 @@ def classify_visual_risk(facts: dict[str, Any], route: str) -> dict[str, Any]:
     if route in {"D"}:
         guardrails.append("不要出现投资建议措辞（买入/卖出/跟单/稳赚/暴富）")
         guardrails.append("不要出现黑客盗币画面")
+    if route in {"E"}:
+        guardrails.append("不要真实公众人物肖像")
+        guardrails.append("不要使用任何公司/交易所 Logo（NVIDIA/Meta/Apple/Tesla/高盛/贝莱德等）")
+        guardrails.append("不要国旗对抗，不要外交宣传海报")
+        guardrails.append("不要投资建议语气，不要把政策影响说成确定收益")
+        guardrails.append("不要加密货币符号，不要交易所风格")
     if route in {"I"}:
         guardrails.append("不要做八卦风格，不要娱乐化")
 
@@ -476,17 +501,99 @@ def build_image_text_pack(facts: dict[str, Any], route: str, text: str) -> dict[
     discarded: list[str] = []
     source_trace: list[dict[str, Any]] = []
 
+    if route == "E":
+        t = text or ""
+
+        is_nvda_h200_visit = (
+            any(x in t for x in ["访华", "随员"])
+            and any(x in t for x in ["黄仁勋"])
+            and any(x in t for x in ["H200", "芯片"])
+            and any(x in t for x in ["$NVDA", "NVDA", "NVIDIA", "英伟达"])
+        )
+
+        if is_nvda_h200_visit:
+            title = "访华随员里的最大赢家"
+            subtitle = "H200 获批与 NVDA 股价表现同框"
+            topic_fallback = "中美科技政策、H200 芯片获批与 NVDA 市场表现"
+            if not _s(facts.get("topic")) or _s(facts.get("topic")) == "热点事件":
+                facts["topic"] = topic_fallback
+            blocks = [
+                {
+                    "label": "核心人物",
+                    "line_1": "黄仁勋成为最大赢家",
+                    "line_2": "NVDA 在随员公司中涨幅居前",
+                },
+                {
+                    "label": "政策变量",
+                    "line_1": "H200 芯片获批出售",
+                    "line_2": "面向 10 余家中国企业",
+                },
+                {
+                    "label": "市场对照",
+                    "line_1": "Meta、高盛、贝莱德等在后",
+                    "line_2": "科技与资本巨头同场比较",
+                },
+            ]
+            source_trace = [
+                {
+                    "block_index": 1,
+                    "source_text": t,
+                    "extracted_lines": [blocks[0]["label"], blocks[0]["line_1"], blocks[0]["line_2"]],
+                    "compression_rule": "e_nvda_h200_winner_rule",
+                },
+                {
+                    "block_index": 2,
+                    "source_text": t,
+                    "extracted_lines": [blocks[1]["label"], blocks[1]["line_1"], blocks[1]["line_2"]],
+                    "compression_rule": "e_chip_policy_approval_rule",
+                },
+                {
+                    "block_index": 3,
+                    "source_text": t,
+                    "extracted_lines": [blocks[2]["label"], blocks[2]["line_1"], blocks[2]["line_2"]],
+                    "compression_rule": "e_company_rank_compare_rule",
+                },
+            ]
+        else:
+            title = "地缘商业的关键变量"
+            subtitle = "政策与市场在同一张封面里"
+            blocks = [
+                {"label": "事件核心", "line_1": "政策与企业同场", "line_2": "不做投资建议结论"},
+                {"label": "政策变量", "line_1": "审批/出口/合规", "line_2": "影响路径需拆解"},
+                {"label": "市场对照", "line_1": "赢家与对照组", "line_2": "只呈现原文信息"},
+            ]
+            source_trace = [
+                {
+                    "block_index": 1,
+                    "source_text": t,
+                    "extracted_lines": [blocks[0]["label"], blocks[0]["line_1"], blocks[0]["line_2"]],
+                    "compression_rule": "e_geo_business_generic_rule",
+                }
+            ]
+
+        return {
+            "route": route,
+            "topic": _s(facts.get("topic")) or "地缘商业/科技政策封面",
+            "title": title,
+            "subtitle": subtitle,
+            "blocks": blocks,
+            "footer": footer,
+            "source_trace": source_trace,
+            "discarded_info": discarded[:12],
+        }
+
     if route == "I":
         t = text or ""
         has_beijing = "北京" in t
         has_subpoena = "传唤" in t
+        has_legal = bool(facts.get("legal_terms")) or any(x in t for x in ["法院", "法官", "律师", "诉讼", "传唤", "取证", "陈词", "出庭"])
         has_rumor = any(x in t for x in ["据称", "知情人士", "尚未确认", "传闻", "仍待确认"])
         has_policy = any(x in t for x in ["政策", "监管", "批准"])
 
-        if has_subpoena and has_beijing:
+        if has_legal and has_subpoena and has_beijing:
             title = "随时传唤中的北京行？"
             subtitle = "行程传闻仍待确认"
-        elif facts.get("legal_terms") and has_rumor:
+        elif has_legal and has_rumor:
             title = "法律灰区里的新变数"
             subtitle = "传闻仍待进一步确认"
         elif has_policy and has_beijing:
@@ -496,56 +603,94 @@ def build_image_text_pack(facts: dict[str, Any], route: str, text: str) -> dict[
             title = "一条仍待确认的关键线索"
             subtitle = "把不确定性画出来，而不是下结论"
 
-        b1 = {
-            "label": "法律状态",
-            "line_1": "仍处于程序进行中",
-            "line_2": "关键节点临近（取证/陈词）",
-        }
-        if "随时传唤" in t:
-            b1["line_1"] = "仍处于「随时传唤」状态"
-        if "联邦法院" in t:
-            b1["line_2"] = "联邦法院程序仍在推进"
+        if has_legal:
+            b1 = {
+                "label": "法律状态",
+                "line_1": "仍处于程序进行中",
+                "line_2": "关键节点临近（取证/陈词）",
+            }
+            if "随时传唤" in t:
+                b1["line_1"] = "仍处于「随时传唤」状态"
+            if "联邦法院" in t:
+                b1["line_2"] = "联邦法院程序仍在推进"
 
-        rumor_sents = _sentence_pick(t, ["知情人士", "据称", "尚未确认", "传闻"], limit=2)
-        b2 = {
-            "label": "行程传闻",
-            "line_1": "据称与行程相关",
-            "line_2": "目前缺乏二手确认",
-        }
-        if has_beijing:
-            b2["line_1"] = "据称与北京行相关"
-        if rumor_sents:
-            b2["line_2"] = rumor_sents[0][:18] + ("…" if len(rumor_sents[0]) > 18 else "")
+            rumor_sents = _sentence_pick(t, ["知情人士", "据称", "尚未确认", "传闻"], limit=2)
+            b2 = {
+                "label": "行程传闻",
+                "line_1": "据称与行程相关",
+                "line_2": "目前缺乏二手确认",
+            }
+            if has_beijing:
+                b2["line_1"] = "据称与北京行相关"
+            if rumor_sents:
+                b2["line_2"] = rumor_sents[0][:18] + ("…" if len(rumor_sents[0]) > 18 else "")
 
-        b3 = {
-            "label": "关键变数",
-            "line_1": "是否会被临时召回",
-            "line_2": "等待法官/律师进一步表态",
-        }
-        if "召回" in t:
-            b3["line_1"] = "最后时刻是否被召回"
+            b3 = {
+                "label": "关键变数",
+                "line_1": "是否会被临时召回",
+                "line_2": "等待法官/律师进一步表态",
+            }
+            if "召回" in t:
+                b3["line_1"] = "最后时刻是否被召回"
 
-        blocks = [b1, b2, b3]
-        source_trace = [
-            {
-                "block_index": 1,
-                "source_text": t,
-                "extracted_lines": [b1.get("label", ""), b1.get("line_1", ""), b1.get("line_2", "")],
-                "compression_rule": "i_legal_status_rule",
-            },
-            {
-                "block_index": 2,
-                "source_text": t,
-                "extracted_lines": [b2.get("label", ""), b2.get("line_1", ""), b2.get("line_2", "")],
-                "compression_rule": "i_rumor_itinerary_rule",
-            },
-            {
-                "block_index": 3,
-                "source_text": t,
-                "extracted_lines": [b3.get("label", ""), b3.get("line_1", ""), b3.get("line_2", "")],
-                "compression_rule": "i_key_variables_rule",
-            },
-        ]
+            blocks = [b1, b2, b3]
+            source_trace = [
+                {
+                    "block_index": 1,
+                    "source_text": t,
+                    "extracted_lines": [b1.get("label", ""), b1.get("line_1", ""), b1.get("line_2", "")],
+                    "compression_rule": "i_legal_status_rule",
+                },
+                {
+                    "block_index": 2,
+                    "source_text": t,
+                    "extracted_lines": [b2.get("label", ""), b2.get("line_1", ""), b2.get("line_2", "")],
+                    "compression_rule": "i_rumor_itinerary_rule",
+                },
+                {
+                    "block_index": 3,
+                    "source_text": t,
+                    "extracted_lines": [b3.get("label", ""), b3.get("line_1", ""), b3.get("line_2", "")],
+                    "compression_rule": "i_key_variables_rule",
+                },
+            ]
+        else:
+            b1 = {
+                "label": "信息状态",
+                "line_1": "仍待更多确认",
+                "line_2": "信息源与细节尚不完整",
+            }
+            b2 = {
+                "label": "市场反应",
+                "line_1": "市场在消化信息",
+                "line_2": "情绪与解读仍分化",
+            }
+            b3 = {
+                "label": "关键变数",
+                "line_1": "后续披露是否增量",
+                "line_2": "声明/数据/口径待更新",
+            }
+            blocks = [b1, b2, b3]
+            source_trace = [
+                {
+                    "block_index": 1,
+                    "source_text": t,
+                    "extracted_lines": [b1.get("label", ""), b1.get("line_1", ""), b1.get("line_2", "")],
+                    "compression_rule": "i_info_status_rule",
+                },
+                {
+                    "block_index": 2,
+                    "source_text": t,
+                    "extracted_lines": [b2.get("label", ""), b2.get("line_1", ""), b2.get("line_2", "")],
+                    "compression_rule": "i_market_reaction_rule",
+                },
+                {
+                    "block_index": 3,
+                    "source_text": t,
+                    "extracted_lines": [b3.get("label", ""), b3.get("line_1", ""), b3.get("line_2", "")],
+                    "compression_rule": "i_generic_variables_rule",
+                },
+            ]
         used = set()
         for b in blocks:
             used.update([b.get("line_1", ""), b.get("line_2", "")])
@@ -881,7 +1026,92 @@ def build_prompt_pack(route: str, image_text_pack: dict[str, Any], risk_pack: di
             + guard_text
             + "\n"
         )
-    else:
+    elif route == "E":
+        render_safe = (
+            f"生成一张适合发布在 X 的中文地缘商业 / 科技政策新闻封面图，比例 {size}。\n\n"
+            "这是一张用于财经科技媒体官号的新闻洞察封面，不是纯背景图，不是投资建议图，不是品牌宣传海报。\n"
+            f"主题围绕：{topic}\n\n"
+            "请保持换行，不要自由改写文字。\n\n"
+            f"标题：{title}\n"
+            f"副标题：{subtitle}\n\n"
+            f"模块 1（{vals['block_1_label']}）：\n{vals['block_1_line_1']}\n{vals['block_1_line_2']}\n\n"
+            f"模块 2（{vals['block_2_label']}）：\n{vals['block_2_line_1']}\n{vals['block_2_line_2']}\n\n"
+            f"模块 3（{vals['block_3_label']}）：\n{vals['block_3_line_1']}\n{vals['block_3_line_2']}\n\n"
+            f"底部署名：{footer}\n\n"
+            "视觉方向：\n"
+            "- 地缘商业新闻封面\n"
+            "- 中美科技政策\n"
+            "- 半导体 / 芯片 / 企业资本市场\n"
+            "- 深色财经媒体封面\n"
+            "- 抽象地图线条 / 半导体芯片纹理\n"
+            "- 企业排行榜 / 赢家对照 / 金色高亮\n"
+            "- 克制、专业、不要宣传感\n\n"
+            "视觉方法：\n"
+            + vals["visual_methods"]
+            + "\n\n不要写死：\n"
+            + vals["do_not_hardcode"]
+            + "\n\n严格限制：\n"
+            + guard_text
+            + "\n"
+        )
+    elif route == "G":
+        render_safe = (
+            f"生成一张适合发布在 X 的中文产品速览 / 工具说明 Bento 信息图，比例 {size}。\n\n"
+            "这是一张带完整中文文字的信息卡，不是纯背景图。\n"
+            "请保持换行，不要自由改写文字。\n\n"
+            f"标题：{title}\n"
+            f"副标题：{subtitle}\n\n"
+            f"模块 1（{vals['block_1_label']}）：\n{vals['block_1_line_1']}\n{vals['block_1_line_2']}\n{vals['block_1_line_3']}\n\n"
+            f"模块 2（{vals['block_2_label']}）：\n{vals['block_2_line_1']}\n{vals['block_2_line_2']}\n{vals['block_2_line_3']}\n\n"
+            f"模块 3（{vals['block_3_label']}）：\n{vals['block_3_line_1']}\n{vals['block_3_line_2']}\n{vals['block_3_line_3']}\n\n"
+            f"底部署名：{footer}\n\n"
+            "视觉方法：\n"
+            + vals["visual_methods"]
+            + "\n\n不要写死：\n"
+            + vals["do_not_hardcode"]
+            + "\n\n严格限制：\n"
+            + guard_text
+            + "\n"
+        )
+    elif route == "B":
+        render_safe = (
+            f"生成一张适合发布在 X 的中文机制解释 / 一图看懂信息图，比例 {size}。\n\n"
+            "这是一张带完整中文文字的信息图，不是纯背景图。\n"
+            "请保持换行，不要自由改写文字。\n\n"
+            f"标题：{title}\n"
+            f"副标题：{subtitle}\n\n"
+            f"要点 1：\n{vals['block_1_line_1']}\n{vals['block_1_line_2']}\n{vals['block_1_line_3']}\n\n"
+            f"要点 2：\n{vals['block_2_line_1']}\n{vals['block_2_line_2']}\n{vals['block_2_line_3']}\n\n"
+            f"要点 3：\n{vals['block_3_line_1']}\n{vals['block_3_line_2']}\n{vals['block_3_line_3']}\n\n"
+            f"底部署名：{footer}\n\n"
+            "视觉方法：\n"
+            + vals["visual_methods"]
+            + "\n\n不要写死：\n"
+            + vals["do_not_hardcode"]
+            + "\n\n严格限制：\n"
+            + guard_text
+            + "\n"
+        )
+    elif route == "H":
+        render_safe = (
+            f"生成一张适合发布在 X 的中文平台 UI 样机 / 社交互动场景图，比例 {size}。\n\n"
+            "这是一张带完整中文文字的 UI 样机海报，不是纯背景图。\n"
+            "请保持换行，不要自由改写文字。\n\n"
+            f"标题：{title}\n"
+            f"副标题：{subtitle}\n\n"
+            f"信息点 1：\n{vals['block_1_line_1']}\n{vals['block_1_line_2']}\n{vals['block_1_line_3']}\n\n"
+            f"信息点 2：\n{vals['block_2_line_1']}\n{vals['block_2_line_2']}\n{vals['block_2_line_3']}\n\n"
+            f"信息点 3：\n{vals['block_3_line_1']}\n{vals['block_3_line_2']}\n{vals['block_3_line_3']}\n\n"
+            f"底部署名：{footer}\n\n"
+            "视觉方法：\n"
+            + vals["visual_methods"]
+            + "\n\n不要写死：\n"
+            + vals["do_not_hardcode"]
+            + "\n\n严格限制：\n"
+            + guard_text
+            + "\n"
+        )
+    elif route == "D":
         render_safe = (
             f"生成一张适合发布在 X 的中文加密市场信息卡，比例 {size}。\n\n"
             "这是一张带完整中文文字的信息卡，不是纯背景图。\n"
@@ -891,6 +1121,25 @@ def build_prompt_pack(route: str, image_text_pack: dict[str, Any], risk_pack: di
             f"内容 1：\n{vals['block_1_line_1']}\n{vals['block_1_line_2']}\n{vals['block_1_line_3']}\n\n"
             f"内容 2：\n{vals['block_2_line_1']}\n{vals['block_2_line_2']}\n{vals['block_2_line_3']}\n\n"
             f"内容 3：\n{vals['block_3_line_1']}\n{vals['block_3_line_2']}\n{vals['block_3_line_3']}\n\n"
+            f"底部署名：{footer}\n\n"
+            "视觉方法：\n"
+            + vals["visual_methods"]
+            + "\n\n不要写死：\n"
+            + vals["do_not_hardcode"]
+            + "\n\n严格限制：\n"
+            + guard_text
+            + "\n"
+        )
+    else:
+        render_safe = (
+            f"生成一张适合发布在 X 的中文信息卡，比例 {size}。\n\n"
+            "这是一张带完整中文文字的信息卡，不是纯背景图。\n"
+            "请保持换行，不要自由改写文字。\n\n"
+            f"标题：{title}\n"
+            f"副标题：{subtitle}\n\n"
+            f"{vals['block_1_label']}\n{vals['block_1_line_1']}\n{vals['block_1_line_2']}\n{vals['block_1_line_3']}\n\n"
+            f"{vals['block_2_label']}\n{vals['block_2_line_1']}\n{vals['block_2_line_2']}\n{vals['block_2_line_3']}\n\n"
+            f"{vals['block_3_label']}\n{vals['block_3_line_1']}\n{vals['block_3_line_2']}\n{vals['block_3_line_3']}\n\n"
             f"底部署名：{footer}\n\n"
             "视觉方法：\n"
             + vals["visual_methods"]

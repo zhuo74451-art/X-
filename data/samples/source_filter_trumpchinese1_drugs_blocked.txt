@@ -1,0 +1,8 @@
+source: @trumpchinese1
+display_name: 特朗普中文推特
+
+这是一条测试样本，文本包含芬太尼 fentanyl，用于验证毒品相关过滤。
+
+expected:
+- source_filter_status: blocked
+- block_reason_contains: drugs

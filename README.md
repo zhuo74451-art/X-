@@ -11,6 +11,10 @@
 - 不做联网检索增强（除非进入后续阶段明确要求）
 - 不把任何 API Key 写入代码/文档/日志
 
+## 流量信号源（Traffic Signal）
+
+- `@trumpchinese1`：仅作为 traffic_signal（不是 fact_source），命中后必须二次核查英文一手来源或可靠媒体；不进入 auto_publish / direct citation。详见 [hot_source_trumpchinese1.md](file:///c:/Users/PC/Desktop/x半自动运营/官号自动运营/coinmeta_x_hot_follow_engine/docs/hot_source_trumpchinese1.md)
+
 ## 当前架构（统一路线）
 
 Hot Engine（规则层）  

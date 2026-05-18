@@ -1,0 +1,14 @@
+source: @trumpchinese1
+display_name: 特朗普中文推特
+
+特朗普总统：你知道我们（在人工智能领域）遥遥领先。但他们排在第二，而且非常强大。我们谈到了可能合作建立护栏（监管防范措施）。
+记者：那建立什么样的护栏？
+特朗普：就是我们一直在谈论的标准护栏。人工智能非常棒，在健康、医疗、手术以及方方面面都会发生很多不可思议的事情。还有军事领域，很多事情都可能发生。但是它也有一些隐患。我们正在谈论……我们很可能会一起合作。我们进行了一次非常好的对话。
+
+expected:
+- source_filter_status: allowed
+- source_role: traffic_signal
+- needs_verification: true
+- publish_as_source: false
+- pipeline_stage: traffic_signal | queued_verification
+- must_not_enter: auto_publish | direct_newsflash

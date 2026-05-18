@@ -1,29 +1,67 @@
+# env / secrets
 .env
 .env.*
 *.key
 *.pem
-*auth*
-*token*
-*authorization*
+secrets/
+credentials/
 auth.json
 auth.lock
+*.secret
+*.token
 
+# API / local auth
+openai*.json
+anthropic*.json
+tavily*.json
+serpapi*.json
+brave*.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+
+# local outputs
 out/
 logs/
 tmp/
 .cache/
-__pycache__/
-*.pyc
+*.log
 
+# generated artifacts
+generated_images/
+source_packs/
+*_cache.json
+image_generation_request.json
+image_generation_mock_report.md
+image_generation_report.md
+source_research_auto_search_report.md
+
+# local DB / caches
 *.db
 
 data/visual_inbox/*
 !data/visual_inbox/README.md
 !data/visual_inbox/override_template.json
 
+# OS / editor
 .DS_Store
 Thumbs.db
-
 .vscode/
 .idea/
+
+# large local files
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mp4
+*.mov
 

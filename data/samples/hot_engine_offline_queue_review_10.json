@@ -1,0 +1,113 @@
+[
+  {
+    "input_type": "coinmeta_newsflash",
+    "source_tool": "coinmeta",
+    "source_name": "CoinMeta 快讯（据 Reuters）",
+    "source_url": "https://www.reuters.com/world/us/sample-1",
+    "raw_text": "Reuters：币安（Binance）就一项安全事件发布说明：部分用户账户出现异常登录提示，交易所已加强风控并提醒用户检查钱包授权与提币白名单。重点是账户与提币风险，不是价格预测。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "coinmeta_newsflash",
+    "source_tool": "coinmeta",
+    "source_name": "CoinMeta 快讯（据 Bloomberg）",
+    "source_url": "https://www.bloomberg.com/news/sample-2",
+    "raw_text": "Bloomberg：SEC 对某加密平台启动新一轮调查，涉及客户资金隔离与交易所账户审计。对用户来说关键信号是：资金是否安全、提现是否受影响、风险边界是什么。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "quick_data",
+    "source_tool": "coindesk",
+    "source_name": "CoinDesk",
+    "source_url": "https://www.coindesk.com/markets/sample-3",
+    "raw_text": "CoinDesk：BTC 现货 ETF 单日成交额与资金流出现明显分化，市场风险偏好波动。对普通用户来说，重点是资金与流动性是否在变，而不是短线价格。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "authority_post",
+    "source_tool": "x",
+    "source_name": "Binance",
+    "source_url": "https://www.binance.com/en/blog/community/sample-4",
+    "raw_text": "币安公告：平台将上线新的账户安全设置，默认开启高风险提币二次校验，并增加钱包授权风险提示。对用户影响是提现门槛与安全成本变化。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "宏观热点（含用户连接）",
+    "source_url": "https://www.wsj.com/news/sample-5",
+    "raw_text": "WSJ：美联储官员释放更鹰派信号，市场重新定价风险偏好。对加密用户的关键是：资金成本上升会不会影响交易所保证金与清算压力，钱包里该如何做风控。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "能源冲击（含现实场景）",
+    "source_url": "https://www.ft.com/content/sample-6",
+    "raw_text": "FT：中东局势推升能源与航运成本，部分企业开始调整航班与货柜策略。对市场影响是风险偏好与流动性变化，对普通人是账单成本与价格压力。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "authority_post",
+    "source_tool": "x",
+    "source_name": "OpenAI",
+    "source_url": "https://openai.com/blog/sample-7",
+    "raw_text": "OpenAI 更新发布：新增一项安全控制，限制模型在高风险场景的输出。对用户影响是产品使用边界变化与成本变化，不涉及价格预测。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "quick_data",
+    "source_tool": "theblock",
+    "source_name": "The Block",
+    "source_url": "https://www.theblock.co/post/sample-8",
+    "raw_text": "The Block：某主流交易所出现提币延迟后续已恢复，但链上仍可见异常峰值。对用户最重要的是账户风险、提现路径与应急清单。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "authority_post",
+    "source_tool": "x",
+    "source_name": "SEC",
+    "source_url": "https://www.sec.gov/news/sample-9",
+    "raw_text": "SEC 公告：发布一份与加密交易平台合规相关的指导文件。对用户影响点：平台账户规则变化、资金隔离要求、风险提示是否加强。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  },
+  {
+    "input_type": "hot_topic",
+    "source_tool": "manual",
+    "source_name": "安全事件（非喊单）",
+    "source_url": "https://www.reuters.com/technology/sample-10",
+    "raw_text": "Reuters：某交易所出现疑似黑客攻击相关的链上异常转账，官方正在核查并提示用户暂停高风险授权。对普通用户来说是钱包授权与提币风险管理问题。",
+    "related_coinmeta_news_url": "",
+    "related_coinmeta_news_text": "",
+    "news_card_image": "",
+    "lang": "cn"
+  }
+]
+

@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {
+      "display_name": "特朗普中文推特",
+      "handle": "@trumpchinese1",
+      "source_id": "x_trumpchinese1",
+      "platform": "X",
+      "data_source_layer": "external_signal_source",
+      "source_role": "traffic_signal",
+      "source_category": "trump_chinese_macro",
+      "priority": "P1",
+      "trust_level": "medium_low",
+      "needs_verification": true,
+      "publish_as_source": false
+    }
+  ]
+}
