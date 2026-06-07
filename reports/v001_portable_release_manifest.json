@@ -1,0 +1,99 @@
+{
+  "release": {
+    "version": "0.1.0",
+    "tag": "x-automation-v0.1.0",
+    "release_date": "2026-06-08",
+    "project_name": "CoinMeta X Hot Follow Engine",
+    "project_type": "X/Twitter Semi-Automated Content Operations Demo System"
+  },
+  "repository": {
+    "url": "https://github.com/zhuo74451-art/X-",
+    "branch": "main"
+  },
+  "files": {
+    "documentation": [
+      "README.md",
+      "CLAUDE.md",
+      "docs/DEPLOYMENT.md",
+      "docs/SECURITY_AND_ENV.md",
+      "docs/PORTABLE_RELEASE_MANIFEST.md",
+      "docs/DEMO_RUN_GUIDE.md",
+      "docs/NO_AUTO_PUBLISH_POLICY.md"
+    ],
+    "config_templates": [
+      ".env.example",
+      "requirements.txt",
+      "requirements-dev.txt",
+      "config.yaml",
+      ".gitignore"
+    ],
+    "scripts": [
+      "scripts/run_pipeline_once.py",
+      "scripts/run_autopublish_dryrun_once.py",
+      "scripts/run_hot_engine_once.py",
+      "scripts/run_hot_engine_offline_once.py",
+      "scripts/init_db.py",
+      "scripts/import_sample_hot_inputs.py",
+      "scripts/evaluate_hot_input.py",
+      "scripts/generate_hot_draft.py",
+      "scripts/generate_from_queue.py",
+      "scripts/export_review_queue.py",
+      "scripts/publish_from_generated.py",
+      "scripts/autopublish_guard.py",
+      "scripts/llm_client.py",
+      "scripts/check_x_publish_config.py",
+      "scripts/run_v001_portable_release_check.py",
+      "scripts/x_publisher.py"
+    ],
+    "demo": [
+      "demo_outputs/v001_portable_release_index.html"
+    ],
+    "reports": [
+      "reports/v001_portable_release_check.json",
+      "reports/v001_portable_release_check.md",
+      "reports/v001_portable_release_notes.md",
+      "reports/v001_portable_release_manifest.json"
+    ]
+  },
+  "safety": {
+    "real_x_post_sent": false,
+    "x_api_called": false,
+    "uploaded": false,
+    "post_request_sent": false,
+    "model_called": false,
+    "daemon_started": false,
+    "credential_exposed": false,
+    "real_env_committed": false,
+    "production_write_enabled": false,
+    "auto_publish_enabled": false
+  },
+  "defaults": {
+    "ENABLE_X_POST": "false",
+    "ENABLE_AUTO_PUBLISH": "false",
+    "ENABLE_MODEL_CALL": "false",
+    "ENABLE_DAEMON": "false",
+    "DRY_RUN": "true",
+    "MODEL_RUNTIME": "mock"
+  },
+  "portability": {
+    "no_absolute_paths": true,
+    "no_hardcoded_credentials": true,
+    "gitignore_covers_sensitive_files": true,
+    "dirs_auto_created": [
+      "out/",
+      "reports/",
+      "demo_outputs/",
+      "logs/"
+    ]
+  },
+  "dependencies": {
+    "python": ">=3.9",
+    "third_party_packages": [],
+    "note": "v0.1.0 uses Python standard library only. No pip install required."
+  },
+  "next_deploy_advice": {
+    "recommended_first_deploy_mode": "static_html",
+    "reason": "All reports and demo pages are static HTML/Markdown. No server required. Copy demo_outputs/ and reports/ to any web server or open locally.",
+    "upgrade_path": "To enable real X posting, follow the approval process in docs/NO_AUTO_PUBLISH_POLICY.md and configure .env with real credentials."
+  }
+}

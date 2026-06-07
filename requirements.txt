@@ -1,0 +1,39 @@
+# X Automation v0.1.0 - Python 依赖
+#
+# 当前版本（v0.1.0）仅使用 Python 标准库，无需第三方依赖。
+# 以下为未来可能需要的依赖，按需取消注释。
+#
+# 安装：
+#   pip install -r requirements.txt
+#
+
+# --- 核心依赖（当前无需，预留） ---
+
+# HTTP 请求
+# requests>=2.28.0
+
+# YAML 配置解析
+# PyYAML>=6.0
+
+# 环境变量加载
+# python-dotenv>=1.0.0
+
+# --- OpenRouter / LLM 调用 ---
+
+# OpenAI SDK（如使用 OpenAI 兼容 API）
+# openai>=1.0.0
+
+# Anthropic SDK（如直接调用 Claude API）
+# anthropic>=0.30.0
+
+# --- X/Twitter API ---
+
+# Tweepy（X API v2）
+# tweepy>=4.14.0
+
+# --- 数据处理（预留） ---
+
+# pandas>=2.0.0
+
+# --- 开发工具 ---
+# 见 requirements-dev.txt

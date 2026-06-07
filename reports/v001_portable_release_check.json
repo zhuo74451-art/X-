@@ -1,0 +1,110 @@
+{
+  "title": "X Automation v0.1.0 Portable Release Check",
+  "run_at_utc": "2026-06-07T20:14:44.713181+00:00",
+  "all_passed": true,
+  "checks_passed": 20,
+  "checks_total": 20,
+  "failed_checks": [],
+  "results": [
+    {
+      "check": "README.md exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "docs/DEPLOYMENT.md exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "docs/SECURITY_AND_ENV.md exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "docs/PORTABLE_RELEASE_MANIFEST.md exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "docs/DEMO_RUN_GUIDE.md exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "docs/NO_AUTO_PUBLISH_POLICY.md exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": ".env.example exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "requirements.txt exists",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "check": "no real .env committed",
+      "passed": true,
+      "detail": "safe"
+    },
+    {
+      "check": "no token/key/password/cookie in docs/scripts",
+      "passed": true,
+      "detail": "none found"
+    },
+    {
+      "check": "no hardcoded absolute path in release docs/html",
+      "passed": true,
+      "detail": "none found"
+    },
+    {
+      "check": "no X API post call enabled",
+      "passed": true,
+      "detail": "ENABLE_X_POST=false"
+    },
+    {
+      "check": "no auto publish enabled",
+      "passed": true,
+      "detail": "ENABLE_AUTO_PUBLISH=false"
+    },
+    {
+      "check": "no daemon/cron/systemd created",
+      "passed": true,
+      "detail": "none found"
+    },
+    {
+      "check": "dry-run entry exists or documented",
+      "passed": true,
+      "detail": "run_autopublish_dryrun_once.py"
+    },
+    {
+      "check": "preview/report output exists or documented",
+      "passed": true,
+      "detail": "found existing reports"
+    },
+    {
+      "check": "production_write_enabled=false",
+      "passed": true,
+      "detail": "ENABLE_X_POST=false"
+    },
+    {
+      "check": "model_called=false",
+      "passed": true,
+      "detail": "MODEL_RUNTIME=mock"
+    },
+    {
+      "check": "uploaded=false",
+      "passed": true,
+      "detail": "no upload step in this process"
+    },
+    {
+      "check": "post_request_sent=false",
+      "passed": true,
+      "detail": "no post request in this process"
+    }
+  ]
+}
