@@ -1,0 +1,283 @@
+{
+  "task_id": "x_v2_005_persona_split_test_dryrun",
+  "generated_at_utc": "2026-06-07T14:47:50+00:00",
+  "status": "DONE",
+  "model": "anthropic/claude-sonnet-4.6",
+  "model_calls_made": 9,
+  "active_events": 3,
+  "downgraded_events": 1,
+  "counts": {
+    "final_approved_count": 2,
+    "need_rewrite_count": 1,
+    "blocked_by_risk": 0
+  },
+  "items": [
+    {
+      "event_id": "evt_whale_001",
+      "route": "X_PERSONA_GENERATION",
+      "personas": [
+        "personal_sharp",
+        "reply_hot_take"
+      ],
+      "persona_writer_result": {
+        "event_id": "evt_whale_001",
+        "route": "X_PERSONA_GENERATION",
+        "personal_sharp": "自媒体发「巨鲸转移X亿」，tx hash 一个没有，地址归因也没有，就敢定性砸盘。归集、OTC、内部调仓随便哪个都能推翻，但标题吓人就够了，反正流量到手了 😐",
+        "personal_balanced": "",
+        "reply_hot_take": {
+          "sarcastic": "「神秘巨鲸出逃」——是谁、转去哪、为什么转，这些不重要，标题够吓人就行，涨粉要紧。",
+          "sharp_but_safe": "没地址没哈希就下「砸盘」结论，归集、OTC、调仓随便一种都能推翻，链上分析不是这么玩的。",
+          "og_explainer": "大额转账是信号不是结论。交易所调仓、做市商操作、真实抛压，解读完全不同，没有地址历史和上下文别急着定性。"
+        },
+        "used_facts": [
+          "链上可观察到转账/仓位变化信号（需补事实锚点）",
+          "资金归属主体/转账目的/是否与交易所相关属于未确认信息",
+          "不应直接推断为抛售/利空/内幕"
+        ],
+        "should_not_claim": [
+          "不能写成巨鲸正在砸盘",
+          "不能写成即将暴跌",
+          "不能把转账目的写成已知确定事实"
+        ],
+        "persona_notes": "personal_sharp 结尾避免了「是真不懂还是故意带节奏」套路句式，改为点明流量动机的现象攻击。reply_hot_take 三条均不攻击具体人，aggressive 版本去掉了「先去学学」人身攻击句式，改为现象批评。"
+      },
+      "reviewer_result": {
+        "event_id": "evt_whale_001",
+        "review_decision": "APPROVE_FOR_DRYRUN",
+        "x_taste_score": 82,
+        "human_taste_score": 80,
+        "stance_strength_score": 85,
+        "reply_usefulness_score": 83,
+        "ai_taste_risk": "low",
+        "boring_risk": "low",
+        "main_strengths": [
+          "personal_post 有明确批判立场，直接点名自媒体蹭流量行为，不是泛泛而谈",
+          "语气自然，带有真实的轻蔑感（😐 用得恰当），不像AI生成",
+          "列举了归集/OTC/内部调仓三种反例，有实质内容支撑观点",
+          "reply_angle 三个角度分工清晰，og_explainer 版本尤其实用，可直接用于热评"
+        ],
+        "main_weaknesses": [
+          "personal_post 没有具体事件锚点（因为event_pack本身就是占位测试数据），实战中需要补真实tx或媒体截图才能发",
+          "批评方向略显常见，链上分析圈内这类吐槽已有一定饱和度",
+          "aggressive 和 sarcastic 两个reply角度内容高度重叠，差异化不足"
+        ],
+        "required_fixes": [
+          "上线前必须替换为真实事件：补充具体媒体账号/文章截图或真实tx hash，否则是无靶子的批评",
+          "aggressive 和 sarcastic reply 建议合并或拉开差异，避免重复"
+        ],
+        "one_sentence_judgment": "观点锋利、语气真实、有内容支撑，是一条质量合格的批评性推文，但当前事实锚点为占位符，必须绑定真实事件才能实际发布。"
+      },
+      "risk_result": {
+        "event_id": "evt_whale_001",
+        "risk_decision": "PASS",
+        "risk_level": "low",
+        "blocking_issues": [],
+        "warnings": [
+          "personal_post 中提及'自媒体发「巨鲸转移X亿」'，X亿为泛指占位符，非具体数字，不构成虚假事实，但需确认发布时不会被读者误解为真实数据引用",
+          "内容批评'自媒体'行为，属于对行业现象的评论而非针对特定个人/项目，风险较低，但若发布时语境指向明确的具体账号，需注意潜在诽谤风险",
+          "source_pack 中 URL 为 example.com 占位符，内容本身未引用任何具体链上数据，发布时需确保不暗示有真实数据支撑"
+        ],
+        "safe_for_x_dryrun": true
+      },
+      "final": {
+        "event_id": "evt_whale_001",
+        "route": "X_PERSONA_GENERATION",
+        "personas": [
+          "personal_sharp",
+          "reply_hot_take"
+        ],
+        "primary_persona": "personal_sharp",
+        "status": "APPROVED_FOR_X_DRYRUN",
+        "reasons": [],
+        "x_taste_score": 82,
+        "human_taste_score": 80,
+        "risk_level": "low",
+        "reviewer_decision": "APPROVE_FOR_DRYRUN",
+        "risk_decision": "PASS"
+      }
+    },
+    {
+      "event_id": "evt_hot_001",
+      "route": "X_PERSONA_GENERATION",
+      "personas": [
+        "personal_balanced",
+        "reply_hot_take"
+      ],
+      "persona_writer_result": {
+        "event_id": "evt_hot_001",
+        "route": "X_PERSONA_GENERATION",
+        "personal_sharp": "",
+        "personal_balanced": "ETH 现货 ETF 的「阶段性进展」又刷屏了。但具体文件编号、生效时间都还没落地，主流媒体的持续报道和最终批准之间，距离可以很远。监管节点每一步都能被包装成消息，情绪先行是常态，等文件出来再说也不迟。",
+        "reply_hot_take": {
+          "sarcastic": "「阶段性进展」这词真好用，既不算谎言，又能让人兴奋半天。具体文件编号在哪？生效日期是哪天？没有就先别急😏",
+          "sharp_but_safe": "ETF 审批每个环节都能被报道成「进展」，提交是进展，受理是进展，公示期也是进展。真正重要的是最终裁定，其他的先放一放。",
+          "og_explainer": "SEC 审批流程里，从受理到最终 order 文件落地，中间每一步都可以叫「进展」。现在 uncertain 的还有文件编号、覆盖范围、生效时间，这些没确认之前，消息的水分值得留意。"
+        },
+        "used_facts": [
+          "存在与该监管主题相关的官方信息入口（需人工定位具体文件）",
+          "主流媒体对该监管议题有持续报道",
+          "本次进展对应的具体文件编号/生效时间/覆盖范围尚不确定"
+        ],
+        "should_not_claim": [
+          "不声称 ETH 现货 ETF 已经最终批准或已经生效",
+          "不声称具体文件编号或生效日期已确认",
+          "不声称此次进展必然导致最终通过"
+        ],
+        "persona_notes": "personal_balanced 聚焦「进展≠批准」的认知差，克制但有判断，避免情绪跟风；reply_hot_take 三条风格差异明显，sarcastic 带轻微冷嘲但不攻击个人，og_explainer 有实质信息拆解，均严守 should_not_claim 红线。"
+      },
+      "reviewer_result": {
+        "event_id": "evt_hot_001",
+        "review_decision": "APPROVE_FOR_DRYRUN",
+        "x_taste_score": 78,
+        "human_taste_score": 80,
+        "stance_strength_score": 75,
+        "reply_usefulness_score": 82,
+        "ai_taste_risk": "low",
+        "boring_risk": "low",
+        "main_strengths": [
+          "personal_post 有明确立场：情绪先行、等文件再说，不是中立总结",
+          "sarcastic reply 角度锋利，「阶段性进展这词真好用」有传播性",
+          "没有声称已批准，符合 fact_pack 的 should_not_claim 约束",
+          "语气像真人在泼冷水，反差感强"
+        ],
+        "main_weaknesses": [
+          "personal_post 结尾「等文件出来再说也不迟」略显平淡，收尾力度不够",
+          "og_explainer 偏解释性，实际用于热评时吸引力一般",
+          "整体观点偏保守/怀疑，缺少对 ETH 本身的任何态度，可能显得只会泼冷水"
+        ],
+        "required_fixes": [
+          "personal_post 结尾可以加一句更有力的收尾，比如对市场情绪的判断或预测",
+          "og_explainer 可以压缩并加入一个具体的反问句，增加互动性"
+        ],
+        "one_sentence_judgment": "立场清晰、语气真实、reply 角度可用，是一条质量合格的怀疑派观点帖，值得进入 dryrun 测试传播效果。"
+      },
+      "risk_result": {
+        "event_id": "evt_hot_001",
+        "risk_decision": "PASS",
+        "risk_level": "low",
+        "blocking_issues": [],
+        "warnings": [
+          "personal_post 和 reply_angle 均未声称'已批准/已生效'，符合 fact_pack 的 should_not_claim 要求，但建议发布时附注'信息仍待核实'以进一步降低误导风险",
+          "image_candidates 中的图片 URL 为 placeholder（example.com），若实际发布请替换为真实可访问的图源，避免死链引发可信度质疑",
+          "source_pack 中 SEC 和 Reuters 均为入口级 URL，非具体文件链接，若在帖子中引用来源需注意不要暗示已有明确文件支撑"
+        ],
+        "safe_for_x_dryrun": true
+      },
+      "final": {
+        "event_id": "evt_hot_001",
+        "route": "X_PERSONA_GENERATION",
+        "personas": [
+          "personal_balanced",
+          "reply_hot_take"
+        ],
+        "primary_persona": "personal_balanced",
+        "status": "NEED_REWRITE",
+        "reasons": [
+          "x_taste_score<80"
+        ],
+        "x_taste_score": 78,
+        "human_taste_score": 80,
+        "risk_level": "low",
+        "reviewer_decision": "APPROVE_FOR_DRYRUN",
+        "risk_decision": "PASS"
+      }
+    },
+    {
+      "event_id": "evt_industry_001",
+      "route": "X_PERSONA_GENERATION",
+      "personas": [
+        "personal_sharp",
+        "personal_balanced",
+        "reply_hot_take"
+      ],
+      "persona_writer_result": {
+        "event_id": "evt_industry_001",
+        "route": "X_PERSONA_GENERATION",
+        "personal_sharp": "零手续费这个噱头每隔一段时间就出来收割一次眼球。真实交易成本从来不只是费率，盘口深度和撮合速度才是藏在水下的大头。批量撤单这种功能拿来当发布会主角，说明这行业对用户的预期管理还停留在很低的水位。",
+        "personal_balanced": "交易所开始卷费率和功能，对活跃交易者短期确实有点甜头。但费率只是成本的一部分，深度和延迟才是老玩家真正在意的。高级订单类型这类迭代更值得观察，这是机构和做市商选平台的核心依据，比零手续费的噱头含金量高多了 📊",
+        "reply_hot_take": {
+          "sarcastic": "批量撤单终于来了，感动。传统金融里这叫标配，加密行业能开发布会，时间线真的很有特色。",
+          "sharp_but_safe": "费率战背后通常是流量压力，补贴能持续多久值得观察。零手续费从来不是免费，成本会从别的地方找回来。",
+          "og_explainer": "真实交易成本 = 手续费 + 滑点 + 撮合延迟。只盯着费率数字跑平台的，往往在盘口深度上悄悄还回去了。"
+        },
+        "used_facts": [
+          "行业存在围绕手续费与交易体验的竞争",
+          "多家交易所推出批量撤单/高级订单等功能"
+        ],
+        "should_not_claim": [
+          "不要断言某平台将必然吸走全部流量",
+          "不要断言费率调整必然导致价格上涨",
+          "具体平台费率调整细则与生效时间未经一手来源确认"
+        ],
+        "persona_notes": "三个 persona 均未点名具体平台，停留在行业结构层面。personal_sharp 强化了「噱头」攻击现象的角度；personal_balanced 补充了高级订单类型对机构用户的实际意义；reply_hot_take 三条分别覆盖讽刺、克制警示、知识解释三种回复场景。"
+      },
+      "reviewer_result": {
+        "event_id": "evt_industry_001",
+        "review_decision": "APPROVE_FOR_DRYRUN",
+        "x_taste_score": 82,
+        "human_taste_score": 80,
+        "stance_strength_score": 85,
+        "reply_usefulness_score": 83,
+        "ai_taste_risk": "low",
+        "boring_risk": "low",
+        "main_strengths": [
+          "personal_post 有明确观点：真实交易成本不只是费率，锋利且有说服力",
+          "「停留在很低的水位」这类表达有个人风格，不像模板输出",
+          "三个 reply_angle 各有差异化定位，sarcastic 角度尤其适合中文 Web3 X 生态",
+          "og_explainer 公式化拆解简洁实用，适合作为热评挂在相关讨论下"
+        ],
+        "main_weaknesses": [
+          "personal_post 缺乏具体平台或事件锚点，略显悬空，传播时容易被质疑针对谁",
+          "「每隔一段时间就出来收割一次眼球」开头稍显套路，可以更直接切入核心论点",
+          "aggressive reply 与 personal_post 观点高度重叠，独立使用价值有限"
+        ],
+        "required_fixes": [
+          "建议 personal_post 加一句具体触发点（哪家平台/什么时间节点），增强可信度与时效感",
+          "aggressive reply 可以与 personal_post 做差异化，避免两者同时发出时显得重复"
+        ],
+        "one_sentence_judgment": "观点锋利、语感自然、reply 角度实用，是一条质量合格的行业评论内容，补充具体锚点后传播力会更强。"
+      },
+      "risk_result": {
+        "event_id": "evt_industry_001",
+        "risk_decision": "PASS",
+        "risk_level": "low",
+        "blocking_issues": [],
+        "warnings": [
+          "personal_post 及 reply_angle 中对行业现象的批评性表述（如'收割眼球'、'流量压力'、'成本会从别的地方找回来'）属于主观评论，未指向具体平台，风险可控，但若后续版本中点名特定交易所，需确保有一手来源支撑，否则存在诽谤或误导风险",
+          "source_pack 中来源均为占位/示例性质（example.com），内容中未引用任何具体平台公告或数据，若读者追问具体依据，作者无法提供可验证来源，建议在发布前补充真实一手来源",
+          "og_explainer 中'真实交易成本 = 手续费 + 滑点 + 撮合延迟'为行业通识表述，无事实性风险，但属于简化模型，可酌情加'等因素'以避免被认为不完整"
+        ],
+        "safe_for_x_dryrun": true
+      },
+      "final": {
+        "event_id": "evt_industry_001",
+        "route": "X_PERSONA_GENERATION",
+        "personas": [
+          "personal_sharp",
+          "personal_balanced",
+          "reply_hot_take"
+        ],
+        "primary_persona": "personal_sharp",
+        "status": "APPROVED_FOR_X_DRYRUN",
+        "reasons": [],
+        "x_taste_score": 82,
+        "human_taste_score": 80,
+        "risk_level": "low",
+        "reviewer_decision": "APPROVE_FOR_DRYRUN",
+        "risk_decision": "PASS"
+      }
+    },
+    {
+      "event_id": "evt_case_001",
+      "route": "DOWNGRADE_TO_ARTICLE_OR_NEWS",
+      "status": "DOWNGRADE_TO_ARTICLE_OR_NEWS",
+      "reason": "regulatory/compliance content is better suited to article/news format"
+    }
+  ],
+  "safety": {
+    "x_published": false,
+    "x_api_connected": false,
+    "production_write": false,
+    "daemon_started": false
+  }
+}

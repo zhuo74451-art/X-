@@ -1,0 +1,34 @@
+{
+  "task_id": "x_v2_005_persona_split_test_dryrun",
+  "generated_at_utc": "2026-06-07T14:48:49+00:00",
+  "passed": false,
+  "results": [
+    {
+      "event_id": "evt_whale_001",
+      "route": "X_PERSONA_GENERATION",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "event_id": "evt_hot_001",
+      "route": "X_PERSONA_GENERATION",
+      "passed": false,
+      "violations": [
+        "reply_hot_take.og_explainer_len>80",
+        "too_many_corner_quotes"
+      ]
+    },
+    {
+      "event_id": "evt_industry_001",
+      "route": "X_PERSONA_GENERATION",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "event_id": "evt_case_001",
+      "route": "DOWNGRADE_TO_ARTICLE_OR_NEWS",
+      "passed": true,
+      "violations": []
+    }
+  ]
+}
