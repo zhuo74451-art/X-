@@ -1,0 +1,65 @@
+{
+  "task_id": "x_v2_008_audience_context_gate",
+  "generated_at_utc": "2026-06-07T17:29:08+00:00",
+  "audited_count": 2,
+  "model_calls_made": 0,
+  "items": [
+    {
+      "event_id": "real_v006_rss_f12050b18970",
+      "title": "Meta is paying creators in Stablecoins. Spending them is someone else's problem",
+      "original_score": 82,
+      "audience_context_score": 8,
+      "jargon_count": 0,
+      "unexplained_entities": [],
+      "riddle_phrases_found": [],
+      "overstatements_found": [],
+      "user_entry_test_answered": 2,
+      "user_entry_test_detail": {
+        "what_happened": true,
+        "why_important": false,
+        "user_impact": false,
+        "controversy": true
+      },
+      "ordinary_user_understands": true,
+      "action": "KEEP",
+      "deduction_details": [
+        "user_entry_test=2/4 answered (-2) details={'what_happened': True, 'why_important': False, 'user_impact': False, 'controversy': True}"
+      ]
+    },
+    {
+      "event_id": "real_v006_rss_d30124a258e4",
+      "title": "Ethereum Foundation cuts and departures aren't a crisis, Joe Lubin says",
+      "original_score": 82,
+      "audience_context_score": 0,
+      "jargon_count": 3,
+      "unexplained_entities": [
+        "EF",
+        "Lubin",
+        "Consensys"
+      ],
+      "riddle_phrases_found": [
+        "耐人寻味"
+      ],
+      "overstatements_found": [],
+      "user_entry_test_answered": 2,
+      "user_entry_test_detail": {
+        "what_happened": true,
+        "why_important": false,
+        "user_impact": false,
+        "controversy": true
+      },
+      "ordinary_user_understands": false,
+      "action": "DEMOTE_TO_INSIDER_ONLY",
+      "deduction_details": [
+        "jargon_count=3 terms=['EF', 'Lubin', 'Consensys'] (-6)",
+        "riddles=['耐人寻味'] (-2)",
+        "user_entry_test=2/4 answered (-2) details={'what_happened': True, 'why_important': False, 'user_impact': False, 'controversy': True}"
+      ]
+    }
+  ],
+  "safety": {
+    "x_published": false,
+    "x_api_connected": false,
+    "production_write": false
+  }
+}

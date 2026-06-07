@@ -1,0 +1,86 @@
+{
+  "config_id": "x_audience_context_rules_v008",
+  "version": "1.0.0",
+  "effective_from": "2026-06-08",
+  "rules": {
+    "abbreviation_expansion": {
+      "enabled": true,
+      "description": "冷门缩写必须在帖子中首次出现时解释",
+      "must_explain": {
+        "EF": "以太坊基金会（Ethereum Foundation）",
+        "Joe Lubin": "以太坊联合创始人、Consensys 负责人",
+        "Consensys": "MetaMask（小狐狸钱包）的母公司",
+        "SEC": "美国证券交易委员会",
+        "CFTC": "美国商品期货交易委员会",
+        "DAO": "去中心化自治组织",
+        "L2": "以太坊二层网络",
+        "TVL": "总锁仓量",
+        "MEV": "矿工可提取价值（区块链交易排序中的套利空间）",
+        "zk": "零知识证明（一种隐私保护技术）"
+      }
+    },
+    "user_entry_test": {
+      "enabled": true,
+      "description": "每条帖子必须能回答至少 3/4 个问题",
+      "questions": [
+        "发生了什么？（事件本身）",
+        "为什么重要？（影响面）",
+        "对普通用户有什么影响？（持币/使用体验）",
+        "争议点在哪里？（如果有）"
+      ],
+      "min_answered": 3
+    },
+    "banned_riddle_phrases": {
+      "enabled": true,
+      "description": "谜语人表达出现即 FAIL",
+      "phrases": [
+        "耐人寻味",
+        "懂得都懂",
+        "懂的都懂",
+        "水很深",
+        "你品你细品",
+        "重新分工（未解释谁把什么交给谁）",
+        "划边界（未解释边界是什么）"
+      ],
+      "replacement_guide": {
+        "耐人寻味": "值得注意的矛盾是……",
+        "重新分工": "必须说清楚 A 将 X 工作交给了 B",
+        "划边界": "必须说清楚 A 认为职责范围是 X，不包括 Y"
+      }
+    },
+    "layman_translation": {
+      "enabled": true,
+      "description": "大佬表态/治理/基金会/组织调整/生态分工类话题必须附大白话翻译",
+      "trigger_topics": ["大佬表态", "治理", "基金会", "组织调整", "生态分工"],
+      "template": "简单说：[用一句话解释对普通用户意味着什么]"
+    },
+    "overstatement_guard": {
+      "enabled": true,
+      "description": "没有事实支撑时，不得做过度定性",
+      "banned": ["财阀架空", "洗白", "最大受益者就是谁", "官方砸盘", "要凉了", "项目方跑路"],
+      "allowed": ["社区担心", "争议点在于", "真正要看的不是 X，而是 Y", "值得注意的矛盾是"]
+    },
+    "context_scoring": {
+      "enabled": true,
+      "score_range": [0, 10],
+      "thresholds": {
+        "insider_only": [0, 3],
+        "partially_readable": [4, 6],
+        "mostly_readable": [7, 8],
+        "user_friendly": [9, 10]
+      },
+      "pass_threshold": 7,
+      "required_fields": ["jargon_count", "unexplained_entities", "ordinary_user_understands", "deduction_reasons"]
+    }
+  },
+  "enforcement": {
+    "approved_items_only": true,
+    "auto_flag_insider": true,
+    "auto_flag_threshold": 6,
+    "actions": {
+      "KEEP": "audience_context_score >= 7",
+      "REWRITE_FOR_CONTEXT": "audience_context_score in [4, 6]",
+      "DEMOTE_TO_INSIDER_ONLY": "audience_context_score <= 3"
+    }
+  }
+}
