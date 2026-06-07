@@ -1,0 +1,109 @@
+{
+  "task_id": "x_v2_001_audit_baseline_shared_hotspot_plan",
+  "lane": "x_v2",
+  "principles": {
+    "no_repo_merge_now": true,
+    "no_article_project_modification": true,
+    "no_paid_model_calls": true,
+    "no_x_publish": true,
+    "event_pack_is_read_only_bridge": true
+  },
+  "shared_boundary": {
+    "shared_hotspot_core": [
+      "ingestion + normalize",
+      "event clustering",
+      "source_pack + fact_pack building",
+      "risk_flags taxonomy",
+      "recommended_outputs (non-generative)"
+    ],
+    "x_adapter": [
+      "x multi-format generation",
+      "visual routes + image_prompt",
+      "ai reviewer + ai risk auditor + hard gate",
+      "publish (always gated and optional)"
+    ]
+  },
+  "event_pack_schema": {
+    "event_id": "string",
+    "title": "string",
+    "summary": "string",
+    "event_type": "string",
+    "assets": "array",
+    "source_pack": "array",
+    "fact_pack": {
+      "confirmed": "array",
+      "uncertain": "array",
+      "should_not_claim": "array"
+    },
+    "risk_flags": "array",
+    "image_candidates": "array",
+    "recommended_outputs": [
+      "article",
+      "x_post",
+      "thread",
+      "reply",
+      "quote"
+    ],
+    "review_required": true
+  },
+  "x_adapter_output_schema": {
+    "event_id": "string",
+    "official_post": "string",
+    "personal_post": "string",
+    "reply_angle": "string",
+    "quote_angle": "string",
+    "thread_outline": "array",
+    "image_prompt": "string",
+    "risk_flags": "array",
+    "ai_reviewer_required": true,
+    "publish_status": "blocked_until_ai_review"
+  },
+  "mapping_from_current_x_hot_engine": {
+    "source_events_jsonl": "out/hot_engine_queues/events.jsonl",
+    "field_mapping": {
+      "event_id": "event_cluster_id",
+      "title": "cluster_title",
+      "summary": "raw_summary",
+      "source_pack_minimal": [
+        "best_source_url",
+        "source_urls"
+      ],
+      "risk_flags_seed": [
+        "risk_level",
+        "rule_reason"
+      ]
+    }
+  },
+  "merge_timing": {
+    "now": {
+      "merge_repos": false,
+      "reason": [
+        "article project near pre-prod closure",
+        "x project already has hot engine queues",
+        "direct merge increases publish/risk surface",
+        "different downstream outputs"
+      ]
+    },
+    "phase_1_schema_alignment": {
+      "x_project": "export/read event_pack.jsonl (compat layer, keep existing queues)",
+      "article_project": "export event_pack.jsonl",
+      "repos": "still separate"
+    },
+    "phase_2_read_only_bridge": {
+      "x_project_new_adapter_future": "adapters/import_shared_event_pack.py",
+      "reads": "shared dir or article export event_pack.jsonl",
+      "writes": "x side inbox/out only",
+      "article_project_change": false
+    },
+    "phase_3_extract_shared_core": {
+      "trigger_conditions": [
+        "event_pack stable across ≥2 iterations",
+        "fact_pack + risk_flags taxonomy aligned",
+        "x reviewer/risk auditor/hard gate stable",
+        "article pre-prod metrics stable and rollbackable"
+      ],
+      "deliverable": "shared_hotspot_core package or third repo"
+    }
+  },
+  "next_adapter_step": "phase_2_read_only_bridge (future): implement adapters/import_shared_event_pack.py"
+}

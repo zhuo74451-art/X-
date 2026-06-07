@@ -1,0 +1,111 @@
+{
+  "task_id": "x_v2_001_audit_baseline_shared_hotspot_plan",
+  "lane": "x_v2",
+  "baseline": {
+    "attempted_command": "python scripts/run_hot_engine_once.py --source integration_published --limit 50",
+    "attempted_runtime_env": {
+      "MODEL_RUNTIME": "mock"
+    },
+    "status": "blocked",
+    "blocked_reason": "fetch_failed http error: 502 (integration_published Integration API unavailable)",
+    "fetched_inputs": 0,
+    "clusters": 0,
+    "queue_counts": {
+      "queue_review": 0,
+      "source_research": 0,
+      "monitor": 0,
+      "reject": 0,
+      "whale_digest": 0
+    },
+    "expected_outputs_when_success": {
+      "queue_dir": "out/hot_engine_queues",
+      "queue_files": [
+        "queue_review.md",
+        "source_research.md",
+        "monitor.md",
+        "reject.md",
+        "whale_digest.md"
+      ],
+      "event_files": [
+        "events.jsonl",
+        "rule_audit.md"
+      ],
+      "operator_summary": "out/hot_engine/<run_id>/operator_summary.md"
+    }
+  },
+  "offline_fallback": {
+    "executed": true,
+    "command": "python scripts/run_hot_engine_offline_once.py --input-file data/sample_hot_inputs.json",
+    "status": "ok",
+    "input_file": "data/sample_hot_inputs.json",
+    "out_dir": "out/hot_engine_queues_offline/20260607T114605Z",
+    "fetched_inputs": 21,
+    "clusters": 21,
+    "queue_counts": {
+      "queue_review": 0,
+      "source_research": 8,
+      "monitor": 8,
+      "reject": 5,
+      "whale_digest": 0
+    },
+    "top_candidates": [
+      {
+        "total_score": 76,
+        "cluster_queue": "source_research",
+        "cluster_title": "Lookonchain：某巨鲸地址在过去 12 小时内将一批 资产分批转入交易所，并在链上出现多次小额测试转账。"
+      },
+      {
+        "total_score": 76,
+        "cluster_queue": "source_research",
+        "cluster_title": "数据：BTC 长期持有者供应占比上升，短期持有者活跃下降，交易所余额继续走低。"
+      },
+      {
+        "total_score": 68,
+        "cluster_queue": "source_research",
+        "cluster_title": "数据：某交易对资金费率持续为正但未创新高，清算量集中在短时间窗口。"
+      },
+      {
+        "total_score": 66,
+        "cluster_queue": "source_research",
+        "cluster_title": "【快讯】某头部交易所宣布下调现货手续费并上线「一键批量撤单」功能，称将改善高频交易体验。"
+      },
+      {
+        "total_score": 66,
+        "cluster_queue": "source_research",
+        "cluster_title": "某交易所出现「暂停提币」传闻，截图来源不明，评论区开始扩散恐慌。"
+      },
+      {
+        "total_score": 62,
+        "cluster_queue": "source_research",
+        "cluster_title": "【快讯】某钱包应用上线「地址风险提示」与「授权一键清理」入口。"
+      },
+      {
+        "total_score": 62,
+        "cluster_queue": "source_research",
+        "cluster_title": "IEA 月报称，受伊朗战争影响，2026 年全球石油供 应预计减少约 390 万桶/日，全球石油库存正以创纪录速度下降。另"
+      },
+      {
+        "total_score": 58,
+        "cluster_queue": "monitor",
+        "cluster_title": "Whale Alert：一笔大额稳定币跨链转移完成，目标链上的 DeFi 头部池子出现流动性变化。"
+      },
+      {
+        "total_score": 58,
+        "cluster_queue": "monitor",
+        "cluster_title": "一段短视频在社区传播：把「链上授权」拍成一键开门的钥匙，最后钥匙丢了导致家门大开，评论区大量讨论授权风险与钓鱼。"
+      },
+      {
+        "total_score": 58,
+        "cluster_queue": "monitor",
+        "cluster_title": "空投来啦！私信我进群，保证稳赚不赔，最后一班车，冲 1000x！"
+      }
+    ]
+  },
+  "safety": {
+    "paid_model_called": false,
+    "x_published": false,
+    "production_write": false,
+    "daemon_started": false,
+    "credential_exposed": false
+  }
+}

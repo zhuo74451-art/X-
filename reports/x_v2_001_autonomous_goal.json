@@ -1,0 +1,45 @@
+{
+  "task_id": "x_v2_001_audit_baseline_shared_hotspot_plan",
+  "lane": "x_v2",
+  "final_goal_auto_publish": true,
+  "current_stage": "L1/L2",
+  "ai_reviewer_required": true,
+  "ai_risk_auditor_required": true,
+  "hard_gate_required": true,
+  "trae_quality_judgment_allowed": false,
+  "principles": {
+    "no_auto_publish_now": true,
+    "no_real_x_publish_now": true,
+    "no_paid_models_now": true,
+    "no_repo_merge_now": true,
+    "rule_score_is_not_quality": true,
+    "no_fake_virality_score": true
+  },
+  "automation_levels": [
+    {
+      "level": "L0",
+      "definition": "只生成，不发布"
+    },
+    {
+      "level": "L1",
+      "definition": "生成 + AI 审稿 + 人工观察"
+    },
+    {
+      "level": "L2",
+      "definition": "AI 审稿通过后 dry-run / 准发布包"
+    },
+    {
+      "level": "L3",
+      "definition": "小流量自动发布"
+    },
+    {
+      "level": "L4",
+      "definition": "稳定全自动发布"
+    },
+    {
+      "level": "L5",
+      "definition": "自动复盘表现并优化规则"
+    }
+  ],
+  "publish_default_status": "blocked_until_ai_review"
+}

@@ -1,0 +1,127 @@
+{
+  "task_id": "x_v2_001_audit_baseline_shared_hotspot_plan",
+  "generated_at_utc": "2026-06-07T11:50:45+00:00",
+  "passed": true,
+  "counts": {
+    "passed": 23,
+    "failed": 0,
+    "total": 23
+  },
+  "checks": [
+    {
+      "id": "exists:architecture_audit_md",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_architecture_audit.md"
+    },
+    {
+      "id": "exists:architecture_audit_json",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_architecture_audit.json"
+    },
+    {
+      "id": "exists:baseline_md",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_hot_engine_baseline.md"
+    },
+    {
+      "id": "exists:baseline_json",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_hot_engine_baseline.json"
+    },
+    {
+      "id": "exists:bridge_plan_md",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_shared_hotspot_core_bridge_plan.md"
+    },
+    {
+      "id": "exists:bridge_plan_json",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_shared_hotspot_core_bridge_plan.json"
+    },
+    {
+      "id": "exists:autonomous_goal_md",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_autonomous_goal.md"
+    },
+    {
+      "id": "exists:autonomous_goal_json",
+      "ok": true,
+      "detail": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\reports\\x_v2_001_autonomous_goal.json"
+    },
+    {
+      "id": "doc:no_repo_merge",
+      "ok": true,
+      "detail": "bridge plan must clearly say no repo merge now"
+    },
+    {
+      "id": "doc:no_auto_publish_now",
+      "ok": true,
+      "detail": "autonomous goal must clearly say no auto publish now"
+    },
+    {
+      "id": "doc:final_goal_auto_publish",
+      "ok": true,
+      "detail": "autonomous goal must clearly say final goal is auto publish"
+    },
+    {
+      "id": "doc:trae_not_quality_judge",
+      "ok": true,
+      "detail": "autonomous goal must clearly say Trae is not content-quality judge"
+    },
+    {
+      "id": "doc:ai_reviewer_risk_auditor_hard_gate",
+      "ok": true,
+      "detail": "autonomous goal must contain AI Reviewer / AI Risk Auditor / Hard Gate"
+    },
+    {
+      "id": "doc:event_pack_schema",
+      "ok": true,
+      "detail": "bridge plan must contain event_pack schema"
+    },
+    {
+      "id": "safety:paid_model_called_false",
+      "ok": true,
+      "detail": "baseline.safety.paid_model_called == false"
+    },
+    {
+      "id": "safety:x_published_false",
+      "ok": true,
+      "detail": "baseline.safety.x_published == false"
+    },
+    {
+      "id": "safety:daemon_started_false",
+      "ok": true,
+      "detail": "baseline.safety.daemon_started == false"
+    },
+    {
+      "id": "safety:credential_exposed_false",
+      "ok": true,
+      "detail": "baseline.safety.credential_exposed == false"
+    },
+    {
+      "id": "bridge:no_repo_merge_now_true",
+      "ok": true,
+      "detail": "bridge_plan.principles.no_repo_merge_now == true"
+    },
+    {
+      "id": "bridge:no_article_project_modification_true",
+      "ok": true,
+      "detail": "bridge_plan.principles.no_article_project_modification == true"
+    },
+    {
+      "id": "goal:trae_quality_judgment_allowed_false",
+      "ok": true,
+      "detail": "autonomous_goal.trae_quality_judgment_allowed == false"
+    },
+    {
+      "id": "goal:final_goal_auto_publish_true",
+      "ok": true,
+      "detail": "autonomous_goal.final_goal_auto_publish == true"
+    },
+    {
+      "id": "repo:business_code_modified_false",
+      "ok": true,
+      "detail": "disallowed_modified_files=[]"
+    }
+  ]
+}
