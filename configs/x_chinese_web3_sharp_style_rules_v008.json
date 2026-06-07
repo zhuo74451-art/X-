@@ -1,0 +1,108 @@
+{
+  "config_id": "x_chinese_web3_sharp_style_rules_v008",
+  "version": "1.0.0",
+  "effective_from": "2026-06-08",
+  "replaces": "x_audience_context_rules_v008",
+  "rules": {
+    "entity_translation": {
+      "enabled": true,
+      "description": "冷门实体必须翻译成普通用户能懂的标签",
+      "dictionary": {
+        "EF": "以太坊官方基金会",
+        "Joe Lubin": "以太坊联合创始人 / Consensys 老板",
+        "Consensys": "小狐狸钱包 MetaMask 背后的公司",
+        "MetaMask": "小狐狸钱包",
+        "SEC": "美国证监会",
+        "CFTC": "美国期货监管",
+        "L2": "以太坊二层网络",
+        "TVL": "总锁仓量",
+        "DAO": "去中心化自治组织"
+      },
+      "rule": "禁止开头直接写冷门实体名，必须先建立上下文"
+    },
+    "banned_words": {
+      "enabled": true,
+      "description": "谜语人和空洞表达，出现即 FAIL",
+      "list": [
+        "耐人寻味", "懂得都懂", "懂的都懂", "水很深", "你品你细品",
+        "值得关注", "引发市场关注", "基础设施", "基本常识", "良性竞争",
+        "重新分工", "划边界", "值得注意的是", "从某种程度上说",
+        "综上所述"
+      ],
+      "replacement_guide": {
+        "重新分工": "说清楚谁管什么、谁不管什么",
+        "划边界": "说清楚 A 认为只该管 X",
+        "值得关注": "直接说关注的具体东西"
+      }
+    },
+    "sharp_expression": {
+      "enabled": true,
+      "description": "允许锐评但必须用质疑/推演语气",
+      "allowed_tone": [
+        "洗白", "圆场", "退居二线", "重新分桌吃饭",
+        "权力重新分配", "利益重新分配", "被社区骂惨了", "不干正事",
+        "明眼人都看得出来", "这事没那么简单",
+        "听起来很体面，但你细想就不对劲",
+        "最容易接盘的，不就是……吗？",
+        "这很难不让人联想到……",
+        "真正的问题不是X，而是Y",
+        "表面是A，底层是B",
+        "话说得体面，但利益链条摆在那里",
+        "翻译一下：……"
+      ],
+      "banned_hard_assertions": [
+        "已经被架空", "明确利益输送", "最大受益者已经坐实",
+        "官方砸盘", "以太坊要凉", "项目方跑路",
+        "必然", "一定", "毫无疑问", "已坐实"
+      ]
+    },
+    "chinese_x_tone": {
+      "enabled": true,
+      "description": "中文 X 语感：有瓜味、有冲突、有立场",
+      "requirements": [
+        "短句为主（8-15字）",
+        "允许口语（说白了、讲真、你细想）",
+        "不要三段论工整结构",
+        "不要首先/其次/最后",
+        "不要综上所述",
+        "不要英文直译腔",
+        "不要GPT稳健口吻"
+      ],
+      "target_feel": "懂行的人在锐评，不是媒体在报道"
+    },
+    "safety_boundary": {
+      "enabled": true,
+      "immutable": true,
+      "rules": [
+        "不喊单",
+        "不预测价格",
+        "不写投资建议",
+        "不断言主力操盘/砸盘/爆空",
+        "不攻击具体个人",
+        "不把猜测写成事实",
+        "不新增event_pack以外的事实"
+      ]
+    },
+    "dual_scoring": {
+      "enabled": true,
+      "audience_context_score": {
+        "range": [0, 10],
+        "pass_threshold": 8,
+        "criteria": "普通Web3用户能否看懂发生了什么和为什么重要"
+      },
+      "sharpness_score": {
+        "range": [0, 10],
+        "pass_threshold": 8,
+        "criteria": "是否有中文X传播性：冲突、观点、瓜味、转发点"
+      },
+      "final_approved_requires": [
+        "audience_context_score >= 8",
+        "sharpness_score >= 8",
+        "risk_level != high",
+        "不喊单",
+        "不造谣",
+        "不预测价格"
+      ]
+    }
+  }
+}
