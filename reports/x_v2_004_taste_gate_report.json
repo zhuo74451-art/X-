@@ -1,0 +1,19 @@
+{
+  "task_id": "x_v2_004_dryrun_export_and_rewrite",
+  "generated_at_utc": "2026-06-07T14:02:11+00:00",
+  "approved_checked": 2,
+  "passed": true,
+  "failed": [],
+  "results": [
+    {
+      "event_id": "evt_hot_001",
+      "passed": true,
+      "violations": []
+    },
+    {
+      "event_id": "evt_whale_001",
+      "passed": true,
+      "violations": []
+    }
+  ]
+}

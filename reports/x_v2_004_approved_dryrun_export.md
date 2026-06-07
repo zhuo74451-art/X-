@@ -1,0 +1,79 @@
+# X v2-004 Approved Dry-run Export
+
+- generated_at_utc: 2026-06-07T14:01:08+00:00
+- approved_count: 2
+
+---
+
+## Approved 1
+- event_id: evt_hot_001
+- title: 以太坊现货 ETF 监管进展引发市场关注
+- reviewer_decision: APPROVE_FOR_DRYRUN
+- risk_decision: PASS
+- x_taste_score: 82
+- human_taste_score: 80
+- risk_level: low
+
+### Personal Post
+
+ETH 现货 ETF 审批又有动静了。但我不会在文件落地之前就喊「批了」。SEC 这关，走到哪算哪，进展≠通过。先等具体文件编号出来再说，现在的「阶段性进展」四个字水分不小。
+
+### Reply Angles
+
+Aggressive：
+每次「阶段性进展」都能带一波情绪，然后悄悄没下文。不拿出具体文件编号和生效日期，这种消息就是情绪燃料，不是事实。
+
+Sarcastic：
+「阶段性进展」，经典表述。翻译一下就是还没批但先让你兴奋一下。SEC 的节奏，你懂的😏
+
+OG Explainer：
+ETF 审批流程有几个关键节点，提交、受理、公示期、最终裁定，每个都能被包装成「进展」。真正重要的是最终裁定日期和具体 order 文件，没这两样别太当回事。
+
+### Why Approved
+
+- v2_002_hard_gate_passed=true (from v003 pipeline)
+- reviewer_decision=APPROVE_FOR_DRYRUN
+- risk_decision=PASS
+- x_taste_score=82>=80
+- human_taste_score=80>=80
+- ai_taste_risk=low!=high
+- boring_risk=low!=high
+- risk_level=low!=high
+
+---
+
+## Approved 2
+- event_id: evt_industry_001
+- title: 交易所“费率战”与产品功能迭代可能改变短期流量格局
+- reviewer_decision: APPROVE_FOR_DRYRUN
+- risk_decision: PASS
+- x_taste_score: 82
+- human_taste_score: 80
+- risk_level: low
+
+### Personal Post
+
+交易所费率战打起来了，对散户其实是好事。但别被「零手续费」骗了，滑点和深度才是真成本。功能层面批量撤单这类东西早该有，现在拿来当卖点，说明行业卷得还不够狠。
+
+### Reply Angles
+
+Aggressive：
+费率战的本质是流量焦虑。谁的用户留存在下滑谁就先降费，这不是良性竞争，是在用利润换时间。等补贴停了，用户跑得比来时还快。
+
+Sarcastic：
+批量撤单终于来了，感动。这功能在传统金融里叫「基础设施」，在加密行业能当新品发布会，时间线真的很特别。
+
+OG Explainer：
+费率只是表面。老玩家都知道，真正影响交易成本的是盘口深度和撮合延迟。功能迭代值得关注的点在于高级订单类型，这才是机构用户和做市商选平台的核心依据。
+
+### Why Approved
+
+- v2_002_hard_gate_passed=true (from v003 pipeline)
+- reviewer_decision=APPROVE_FOR_DRYRUN
+- risk_decision=PASS
+- x_taste_score=82>=80
+- human_taste_score=80>=80
+- ai_taste_risk=low!=high
+- boring_risk=low!=high
+- risk_level=low!=high
+
