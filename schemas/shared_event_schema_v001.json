@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "shared_event_schema_v001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "title",
+    "summary",
+    "event_type",
+    "assets",
+    "source_pack",
+    "fact_pack",
+    "risk_flags",
+    "image_candidates",
+    "recommended_outputs",
+    "review_required"
+  ],
+  "properties": {
+    "event_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "event_type": {
+      "type": "string",
+      "enum": [
+        "hot",
+        "industry_structure",
+        "case_data_regulation",
+        "whale",
+        "macro",
+        "project"
+      ]
+    },
+    "assets": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "source_pack": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "url", "source_type", "facts_supported"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string" },
+          "source_type": {
+            "type": "string",
+            "enum": ["official", "data_platform", "tier1_media", "community", "unknown"]
+          },
+          "facts_supported": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "fact_pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["confirmed", "uncertain", "should_not_claim"],
+      "properties": {
+        "confirmed": { "type": "array", "items": { "type": "string" } },
+        "uncertain": { "type": "array", "items": { "type": "string" } },
+        "should_not_claim": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "risk_flags": { "type": "array", "items": { "type": "string" } },
+    "image_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["url", "kind", "usable_for_x"],
+        "properties": {
+          "url": { "type": "string" },
+          "kind": {
+            "type": "string",
+            "enum": ["cover", "chart", "screenshot", "logo", "unknown"]
+          },
+          "usable_for_x": { "type": "boolean" }
+        }
+      }
+    },
+    "recommended_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["article", "x_post", "thread", "reply", "quote"]
+      }
+    },
+    "review_required": { "type": "boolean" }
+  }
+}

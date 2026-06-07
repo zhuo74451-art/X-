@@ -1,0 +1,59 @@
+{
+  "task_id": "x_v2_002_shared_event_pack_adapter",
+  "generated_at_utc": "2026-06-07T13:09:27+00:00",
+  "input_dir": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\out\\x_review_pack_v002",
+  "counts": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0
+  },
+  "passed": true,
+  "results": [
+    {
+      "event_id": "evt_case_001",
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "checked_at_utc": "2026-06-07T13:09:27+00:00",
+      "publish_status": "blocked_until_ai_review",
+      "content_generation_mode": "template_skeleton_no_ai"
+    },
+    {
+      "event_id": "evt_hot_001",
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "checked_at_utc": "2026-06-07T13:09:27+00:00",
+      "publish_status": "blocked_until_ai_review",
+      "content_generation_mode": "template_skeleton_no_ai"
+    },
+    {
+      "event_id": "evt_industry_001",
+      "passed": true,
+      "errors": [],
+      "warnings": [
+        "warning:source_pack[0].url_is_placeholder"
+      ],
+      "checked_at_utc": "2026-06-07T13:09:27+00:00",
+      "publish_status": "blocked_until_ai_review",
+      "content_generation_mode": "template_skeleton_no_ai"
+    },
+    {
+      "event_id": "evt_whale_001",
+      "passed": true,
+      "errors": [],
+      "warnings": [
+        "warning:source_pack[0].url_is_placeholder"
+      ],
+      "checked_at_utc": "2026-06-07T13:09:27+00:00",
+      "publish_status": "blocked_until_ai_review",
+      "content_generation_mode": "template_skeleton_no_ai"
+    }
+  ],
+  "safety": {
+    "paid_model_called": false,
+    "x_published": false,
+    "daemon_started": false,
+    "credential_exposed": false
+  }
+}
