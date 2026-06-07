@@ -1,0 +1,36 @@
+{
+  "title": "X Automation v0.1.0 Clean Clone Smoke Test",
+  "run_at_utc": "2026-06-07T20:16:45+00:00",
+  "version": "0.1.0",
+  "tag": "x-automation-v0.1.0",
+  "clone_dir": "C:/Users/zhuo7/Desktop/x_automation_clean_clone_test",
+  "results": {
+    "clone_success": true,
+    "checkout_success": true,
+    "checkout_commit": "0055554",
+    "install_requirements_success": true,
+    "portable_check_success": true,
+    "checks_passed": 20,
+    "checks_total": 20,
+    "all_passed": true,
+    "readme_readable": true,
+    "demo_html_exists": true,
+    "no_absolute_paths": true,
+    "no_real_env": true,
+    "no_real_token": true,
+    "no_real_x_post": true,
+    "no_background_tasks": true
+  },
+  "safety": {
+    "real_x_post_sent": false,
+    "x_api_called": false,
+    "uploaded": false,
+    "post_request_sent": false,
+    "model_called": false,
+    "daemon_started": false,
+    "credential_exposed": false,
+    "real_env_committed": false,
+    "production_write_enabled": false
+  },
+  "verdict": "PASS"
+}
