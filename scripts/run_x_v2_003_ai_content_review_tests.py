@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from llm_client import load_openrouter_api_key
 
 def _project_root() -> Path:
     return Path(__file__).resolve().parents[1]
@@ -84,7 +85,7 @@ def main() -> None:
     report_path = reports_dir / "x_v2_003_ai_content_review_report.json"
     check(report_path.exists(), "report_exists:v2_003_ai_content_review_report", str(report_path))
 
-    key_present = bool((os.getenv("OPENROUTER_API_KEY") or "").strip())
+    key_present = bool(load_openrouter_api_key())
     mode = "openrouter" if key_present else "blocked_missing_key_expected"
 
     if report_path.exists():

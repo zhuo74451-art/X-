@@ -6,7 +6,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from llm_client import call_llm_task
+from llm_client import call_llm_task, load_openrouter_api_key
 
 
 def _project_root() -> Path:
@@ -43,10 +43,8 @@ def _load_prompt(root: Path, rel_path: str) -> str:
 
 
 def _detect_key_missing() -> tuple[bool, str]:
-    if not (os.getenv("OPENROUTER_API_KEY") or "").strip():
+    if not load_openrouter_api_key():
         return True, "BLOCKED_MISSING_OPENROUTER_KEY"
-    if not (os.getenv("OPENROUTER_MODEL") or "").strip():
-        return True, "BLOCKED_MISSING_OPENROUTER_MODEL"
     return False, ""
 
 
@@ -295,6 +293,10 @@ def main() -> None:
             "generated_at_utc": _utc_now_iso(),
             "status": blocked_status,
             "blocked_reason": blocked_status,
+            "key_loading": {
+                "env_key_detected": bool((os.getenv("OPENROUTER_API_KEY") or "").strip()),
+                "local_secret_detected": bool(load_openrouter_api_key()) and not bool((os.getenv("OPENROUTER_API_KEY") or "").strip()),
+            },
             "model_calls_made": 0,
             "generated_events": 0,
             "counts": {},
@@ -309,6 +311,8 @@ def main() -> None:
         raise SystemExit(2)
 
     os.environ["MODEL_RUNTIME"] = "openrouter"
+    if not (os.getenv("OPENROUTER_MODEL") or "").strip():
+        os.environ["OPENROUTER_MODEL"] = "anthropic/claude-sonnet-4.6"
 
     writer_prompt = _load_prompt(root, "prompts/x_writer_personal_reply_v003.md")
     reviewer_prompt = _load_prompt(root, "prompts/x_ai_reviewer_v003.md")
@@ -318,7 +322,7 @@ def main() -> None:
     out_root = root / "out" / "x_review_pack_v003"
     out_root.mkdir(parents=True, exist_ok=True)
 
-    model = (os.getenv("OPENROUTER_MODEL") or "").strip()
+    model = (os.getenv("OPENROUTER_MODEL") or "anthropic/claude-sonnet-4.6").strip()
 
     event_dirs = [p for p in sorted(v2_root.iterdir()) if p.is_dir()]
     event_dirs = event_dirs[:4]
@@ -510,6 +514,11 @@ def main() -> None:
         "task_id": "x_v2_003_ai_personal_reply_generation_review",
         "generated_at_utc": _utc_now_iso(),
         "status": "DONE",
+        "key_loading": {
+            "env_key_detected": bool((os.getenv("OPENROUTER_API_KEY") or "").strip()),
+            "local_secret_detected": bool(load_openrouter_api_key()) and not bool((os.getenv("OPENROUTER_API_KEY") or "").strip()),
+        },
+        "model": model,
         "model_calls_made": model_calls,
         "generated_events": len(rows_for_summary),
         "counts": counts,

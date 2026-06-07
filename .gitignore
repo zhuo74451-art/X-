@@ -3,6 +3,7 @@
 .env.*
 *.key
 *.pem
+local_only/
 secrets/
 credentials/
 auth.json

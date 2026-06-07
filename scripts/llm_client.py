@@ -42,6 +42,20 @@ def _runtime() -> str:
     return v
 
 
+def load_openrouter_api_key() -> str:
+    env_key = (os.getenv("OPENROUTER_API_KEY") or "").strip()
+    if env_key:
+        return env_key
+
+    secret_path = _project_root() / "local_only" / "openrouter_api_key.txt"
+    if secret_path.exists():
+        key = (secret_path.read_text(encoding="utf-8") or "").strip()
+        if key:
+            return key
+
+    return ""
+
+
 def _strip_code_fences(text: str) -> str:
     s = (text or "").strip()
     s = re.sub(r"^```(?:json)?\s*", "", s, flags=re.IGNORECASE)
@@ -301,7 +315,7 @@ def _call_openrouter_result(
     skill_name: str,
     input_id: str,
 ) -> dict[str, Any]:
-    api_key = _env("OPENROUTER_API_KEY", "")
+    api_key = load_openrouter_api_key()
     model = _env("OPENROUTER_MODEL", "anthropic/claude-sonnet-4.6")
 
     res = _result_template("openrouter", model)
