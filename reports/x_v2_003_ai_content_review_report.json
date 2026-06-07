@@ -1,0 +1,14 @@
+{
+  "task_id": "x_v2_003_ai_personal_reply_generation_review",
+  "generated_at_utc": "2026-06-07T13:23:30+00:00",
+  "status": "BLOCKED_MISSING_OPENROUTER_KEY",
+  "blocked_reason": "BLOCKED_MISSING_OPENROUTER_KEY",
+  "model_calls_made": 0,
+  "generated_events": 0,
+  "counts": {},
+  "safety": {
+    "x_published": false,
+    "x_api_connected": false,
+    "paid_model_called": false
+  }
+}
