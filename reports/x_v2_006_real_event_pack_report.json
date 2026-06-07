@@ -1,0 +1,22 @@
+{
+  "task_id": "x_v2_006_real_event_pack",
+  "generated_at_utc": "2026-06-07T15:00:52+00:00",
+  "status": "DONE",
+  "source_mode": "local_latest_stream_real",
+  "real_event_count": 5,
+  "blocked_reason": "integration_published_fetch_failed: http error: 502",
+  "source_trace": [
+    "integration_published_fetch_failed: http error: 502",
+    "https://www.coindesk.com/arc/outboundfeeds/rss/",
+    "https://cointelegraph.com/rss",
+    "https://decrypt.co/feed"
+  ],
+  "output_jsonl": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\data\\real_event_pack_v006.jsonl",
+  "sample_event_ids": [
+    "real_v006_rss_d3fdeeeb9a31",
+    "real_v006_rss_d30124a258e4",
+    "real_v006_rss_8af16b71a993",
+    "real_v006_rss_f12050b18970",
+    "real_v006_rss_0177f6a33671"
+  ]
+}

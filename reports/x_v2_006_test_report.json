@@ -1,0 +1,17 @@
+{
+  "task_id": "x_v2_006_real_event_persona_dryrun",
+  "generated_at_utc": "2026-06-07T15:06:49+00:00",
+  "passed": true,
+  "failed": [],
+  "real_event_pack": {
+    "status": "DONE",
+    "source_mode": "local_latest_stream_real",
+    "real_event_count": 5,
+    "blocked_reason": "integration_published_fetch_failed: http error: 502"
+  },
+  "git_push": {
+    "attempted": true,
+    "pushed": true,
+    "reason": ""
+  }
+}
