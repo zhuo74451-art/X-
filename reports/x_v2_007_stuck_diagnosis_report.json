@@ -1,0 +1,79 @@
+{
+  "task_id": "x_v2_007_stuck_diagnosis",
+  "generated_at_utc": "2026-06-08T00:00:00+00:00",
+  "diagnosis_version": "v2-007a_rescue",
+  "status": "STUCK_ABANDONED",
+  "likely_stuck_at": "public_rss_fallback — 拉取 3 个 RSS 源 60 条、筛选 5 条后卡住，可能因 RSS 解析或后续 pipeline 耗时超 30 分钟",
+  "partial_files_created": [
+    "reports/x_v2_007_real_hotspot_rewrite_report.json",
+    "reports/x_v2_007_real_hotspot_rewrite_report.md",
+    "reports/x_v2_007_public_rss_fallback_report.json",
+    "reports/x_v2_007_public_rss_fallback_report.md",
+    "reports/x_v2_007_today_test_account_queue.json",
+    "reports/x_v2_007_today_test_account_queue.md",
+    "scripts/run_x_v2_007_real_hotspot_rewrite_and_rss_fallback.py",
+    "scripts/run_x_v2_007_public_rss_fallback.py",
+    "prompts/x_persona_rewriter_v007.md",
+    "data/public_rss_event_pack_v007.jsonl",
+    "out/x_review_pack_v007/real_v006_rss_d3fdeeeb9a31/ (rewriter + reviewer + risk + final)",
+    "out/x_review_pack_v007/real_v006_rss_d30124a258e4/ (rewriter + reviewer + risk + final)",
+    "out/x_review_pack_v007/real_v006_rss_8af16b71a993/ (rewriter + reviewer + risk + final)"
+  ],
+  "v2_006_inputs_available": true,
+  "v2_006_inputs": [
+    "reports/x_v2_006_real_event_persona_dryrun_report.json",
+    "reports/x_v2_006_test_account_queue.json"
+  ],
+  "v2_007_rewrite_summary": {
+    "rewritten_count": 3,
+    "rewrite_approved_count": 1,
+    "need_rewrite_count": 2,
+    "blocked_by_risk": 0,
+    "approved_event_id": "real_v006_rss_d30124a258e4",
+    "need_rewrite_event_ids": [
+      "real_v006_rss_d3fdeeeb9a31",
+      "real_v006_rss_8af16b71a993"
+    ]
+  },
+  "rss_fetch_detected": true,
+  "rss_fetch_details": {
+    "source_mode": "public_rss_real",
+    "sources": ["Coindesk", "Cointelegraph", "Decrypt"],
+    "pulled_items_total": 60,
+    "filtered_last_24h": 11,
+    "selected_count": 5,
+    "output_jsonl": "data/public_rss_event_pack_v007.jsonl"
+  },
+  "model_calls_detected": true,
+  "model_calls_estimated": 9,
+  "model_calls_breakdown": {
+    "rewriter_x3": 3,
+    "reviewer_x3": 3,
+    "risk_x3": 3,
+    "note": "report 中 model_calls_made=0 为追踪 bug，实际至少 9 次调用（3 条 x 3 阶段）"
+  },
+  "stuck_root_cause_analysis": {
+    "primary": "v2-007 范围过大：rewrite + reviewer + risk + RSS fallback 在同一脚本中串行执行，RSS fallback 拉取 60 条后卡在后续处理",
+    "secondary": "无 timeout 保护机制，单次调用卡住即整体卡住",
+    "contributing": "脚本设计为单次运行处理所有阶段，无中间状态保存，中断后无法续跑"
+  },
+  "safety": {
+    "x_published": false,
+    "x_api_connected": false,
+    "production_write": false,
+    "daemon_started": false,
+    "article_project_modified": false,
+    "credential_exposed": false
+  },
+  "rescue_plan": {
+    "strategy": "v2-007a minimal rewrite rescue",
+    "input": "v2-006 reports (skip v2-007 partial results)",
+    "max_items": 2,
+    "max_model_calls": 6,
+    "timeout_per_call_seconds": 60,
+    "keep_v2_006_approved": true,
+    "no_rss": true,
+    "no_x_api": true,
+    "output": "v2-007a reports"
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "task_id": "x_v2_007_real_hotspot_rewrite_and_rss_fallback",
+  "generated_at_utc": "2026-06-07T16:27:44+00:00",
+  "model": "anthropic/claude-sonnet-4.6",
+  "model_calls_made": 0,
+  "rewritten_count": 3,
+  "rewrite_approved_count": 1,
+  "items": [
+    {
+      "event_id": "real_v006_rss_d3fdeeeb9a31",
+      "title": "Abra’s Bill Barhydt says Wall Street’s next crypto bet is tokenization",
+      "source_mode": "local_latest_stream_real",
+      "observed_at": "2026-06-07T15:00:00+00:00",
+      "rewrite_reason": "x_taste_score<80;taste_gate_failed",
+      "final": {
+        "event_id": "real_v006_rss_d3fdeeeb9a31",
+        "status": "NEED_REWRITE",
+        "reasons": [
+          "x_taste_score<80"
+        ],
+        "score": 78,
+        "threshold": 80,
+        "decision": "APPROVE_FOR_DRYRUN",
+        "human_taste_score": 80,
+        "risk_level": "low",
+        "risk_decision": "PASS",
+        "source_mode": "local_latest_stream_real",
+        "observed_at": "2026-06-07T15:00:00+00:00",
+        "title": "Abra’s Bill Barhydt says Wall Street’s next crypto bet is tokenization",
+        "source_url": "https://www.coindesk.com/business/2026/06/07/abra-s-bill-barhydt-says-wall-street-s-next-crypto-bet-is-tokenization"
+      },
+      "rewriter_result": {
+        "event_id": "real_v006_rss_d3fdeeeb9a31",
+        "rewrite_reason": "x_taste_score<80;taste_gate_failed — 去掉结尾emoji，强化收尾句；og_explainer加入个人判断，避免信息复述腔",
+        "post": "华尔街每隔一段时间就要给同一件事换个名字，这次叫「代币化」。链上借贷、代币化收益产品，本质还是把传统金融搬上链。概念先行的戏码币圈见多了，这次受众换成机构，叙事包装升级了，但问题没变。",
+        "reply_hot_take": {
+          "sarcastic": "华尔街发现新大陆了，叫「代币化」，上一个叫「DeFi」，再上一个叫「区块链+」，下一阶段永远在下一阶段。",
+          "sharp_but_safe": "代币化收益产品听起来很新，但链上借贷 DeFi 夏天就在跑了。现在换西装重新讲，受众变成机构，叙事是升级了。",
+          "og_explainer": "Abra 押注代币化和链上借贷准备上纳斯达克，方向不算错，但合规框架和实际流动性才是真正的门槛，概念落地前都是预期。"
+        },
+        "used_facts": [
+          "Abra's Bill Barhydt says Wall Street's next crypto bet is tokenization",
+          "As Abra prepares for a Nasdaq debut, CEO Bill Barhydt is betting tokenized yield products and onchain lending will drive the next phase of crypto wealth management."
+        ],
+        "should_not_claim": [
+          "不要把二手传播写成确定事实",
+          "不要写投资建议/喊单/价格预测",
+          "不要断言主力操盘/洗盘/爆空"
+        ]
+      },
+      "reviewer_result": {
+        "event_id": "real_v006_rss_d3fdeeeb9a31",
+        "review_decision": "APPROVE_FOR_DRYRUN",
+        "x_taste_score": 78,
+        "human_taste_score": 80,
+        "stance_strength_score": 75,
+        "reply_usefulness_score": 82,
+        "ai_taste_risk": "low",
+        "boring_risk": "low",
+        "main_strengths": [
+          "personal_post 有明确观点：换名字的把戏，不是新东西",
+          "语气自然，不像公告或媒体稿",
+          "sarcastic reply 角度锋利，适合热评区引共鸣",
+          "og_explainer 有实质内容，点出合规和流动性才是真门槛"
+        ],
+        "main_weaknesses": [
+          "personal_post 结尾'问题没变'略显模糊，没有点出具体是什么问题",
+          "aggressive reply 和 sarcastic reply 观点重叠度较高，差异化不足",
+          "整体偏批评立场，缺少一点建设性张力，可能显得过于cynical"
+        ],
+        "required_fixes": [
+          "personal_post 最后一句可以更具体，比如点出流动性/监管/散户保护等具体问题，增加说服力",
+          "aggressive 和 sarcastic 两个 reply 可以合并或拉开差距，避免重复"
+        ],
+        "one_sentence_judgment": "观点清晰、语气真实、reply 有传播性，minor 修改后可直接发。"
+      },
+      "risk_result": {
+        "event_id": "real_v006_rss_d3fdeeeb9a31",
+        "risk_decision": "PASS",
+        "risk_level": "low",
+        "blocking_issues": [],
+        "warnings": [
+          "personal_post 和 reply 均为观点评论性质，无投资建议或喊单风险，但'概念先行'等表述带有一定主观批判色彩，需确认账号定位与此类评论风格一致",
+          "og_explainer 中'方向不算错'措辞接近隐性背书，建议改为更中性表达以避免被解读为推荐"
+        ],
+        "safe_for_x_dryrun": true
+      }
+    },
+    {
+      "event_id": "real_v006_rss_d30124a258e4",
+      "title": "Ethereum Foundation cuts and departures aren't a crisis, Joe Lubin says",
+      "source_mode": "local_latest_stream_real",
+      "observed_at": "2026-06-07T13:00:00+00:00",
+      "rewrite_reason": "x_taste_score<80",
+      "final": {
+        "event_id": "real_v006_rss_d30124a258e4",
+        "status": "APPROVED_FOR_X_DRYRUN",
+        "reasons": [],
+        "score": 82,
+        "threshold": 80,
+        "decision": "APPROVE_FOR_DRYRUN",
+        "human_taste_score": 85,
+        "risk_level": "low",
+        "risk_decision": "PASS",
+        "source_mode": "local_latest_stream_real",
+        "observed_at": "2026-06-07T13:00:00+00:00",
+        "title": "Ethereum Foundation cuts and departures aren't a crisis, Joe Lubin says",
+        "source_url": "https://www.coindesk.com/tech/2026/06/07/ethereum-foundation-cuts-and-departures-aren-t-a-crisis-joe-lubin-says"
+      },
+      "rewriter_result": {
+        "event_id": "real_v006_rss_d30124a258e4",
+        "rewrite_reason": "x_taste_score<80，主帖结尾过于保守，og_explainer缺乏个人立场，sarcastic需软化以降低攻击性风险",
+        "post": "Lubin 说 EF 裁员不是危机，角色应该更窄更聚焦。Consensys 的人来给 EF 划边界，这个发言本身就耐人寻味——他说的是关心，还是在替生态重新分工？",
+        "reply_hot_take": {
+          "sarcastic": "EF 裁员不是危机，Consensys 老板说的，他们自己倒是没裁 😅",
+          "sharp_but_safe": "「更窄更聚焦」听起来很合理，但谁来定义这条线，才是真正的权力题。",
+          "og_explainer": "Lubin 的逻辑是 EF 守协议层、生态交给外部。我觉得方向没错，但以太坊社区对这条边界从来没共识过。"
+        },
+        "used_facts": [
+          "Ethereum Foundation cuts and departures aren't a crisis, Joe Lubin says",
+          "The Consensys leader told CoinDesk the Ethereum Foundation's role should be narrower and more focused on stewarding the network's core technology and values."
+        ],
+        "should_not_claim": [
+          "不要把二手传播写成确定事实",
+          "不要写投资建议/喊单/价格预测",
+          "不要断言主力操盘/洗盘/爆空"
+        ]
+      },
+      "reviewer_result": {
+        "event_id": "real_v006_rss_d30124a258e4",
+        "review_decision": "APPROVE_FOR_DRYRUN",
+        "x_taste_score": 82,
+        "human_taste_score": 85,
+        "stance_strength_score": 78,
+        "reply_usefulness_score": 80,
+        "ai_taste_risk": "low",
+        "boring_risk": "low",
+        "main_strengths": [
+          "personal_post 有明确的质疑视角：Consensys 的人来给 EF 划边界，身份本身就是观点",
+          "没有复述新闻，而是点出了利益关系的微妙之处",
+          "reply_angle 三条各有角度，aggressive 那条关于「谁来定义这条线」是真正的权力追问",
+          "语言自然，不像 AI 生成的总结稿"
+        ],
+        "main_weaknesses": [
+          "personal_post 结尾「他说的是关心，还是在替生态重新分工」稍显模糊，可以更锋利地站一边",
+          "sarcastic 那条 reply 有点轻飘，「他们自己倒是没裁」这个梗信息量不足",
+          "og_explainer 里「从来没共识过」是个好点但没展开，略显草率"
+        ],
+        "required_fixes": [
+          "personal_post 可以在结尾给出倾向性判断，而不是留开放式问题，否则观点力度打折",
+          "sarcastic reply 建议补充一句实质性内容，纯嘲讽容易被忽略"
+        ],
+        "one_sentence_judgment": "有真实观点和身份质疑，不像公告稿，值得发但结尾可以更有立场。"
+      },
+      "risk_result": {
+        "event_id": "real_v006_rss_d30124a258e4",
+        "risk_decision": "PASS",
+        "risk_level": "low",
+        "blocking_issues": [],
+        "warnings": [
+          "sarcastic reply 中「他们自己倒是没裁」属于 source_pack 未支持的事实性暗示，若 Consensys 实际有过裁员记录可能构成误导，建议核实或删除该隐含对比",
+          "personal_post 中「他说的是关心，还是在替生态重新分工」属于主观推测，读者可能将其理解为事实性指控，建议加明确主观标注"
+        ],
+        "safe_for_x_dryrun": true
+      }
+    },
+    {
+      "event_id": "real_v006_rss_8af16b71a993",
+      "title": "Bitcoin, ether eye worst weekly rout since FTX collapse as cryptos shed $390 billion",
+      "source_mode": "local_latest_stream_real",
+      "observed_at": "2026-06-06T19:58:54+00:00",
+      "rewrite_reason": "risk_decision=NEED_FIX;x_taste_score<80",
+      "final": {
+        "event_id": "real_v006_rss_8af16b71a993",
+        "status": "NEED_REWRITE",
+        "reasons": [
+          "x_taste_score<80",
+          "human_taste_score<80"
+        ],
+        "score": 78,
+        "threshold": 80,
+        "decision": "APPROVE_FOR_DRYRUN",
+        "human_taste_score": 75,
+        "risk_level": "low",
+        "risk_decision": "PASS",
+        "source_mode": "local_latest_stream_real",
+        "observed_at": "2026-06-06T19:58:54+00:00",
+        "title": "Bitcoin, ether eye worst weekly rout since FTX collapse as cryptos shed $390 billion",
+        "source_url": "https://www.coindesk.com/markets/2026/06/06/bitcoin-ether-eye-worst-weekly-rout-since-ftx-collapse-as-cryptos-shed-usd390-billion"
+      },
+      "rewriter_result": {
+        "event_id": "real_v006_rss_8af16b71a993",
+        "rewrite_reason": "risk_decision=NEED_FIX;x_taste_score<80",
+        "post": "市场情绪的钟摆不在乎你上次被吓到没有。这周加密市值蒸发3900亿，跌幅是FTX崩盘以来最大——开头是Strategy卖币，结尾是全线下挫。每次「历史级」标签出现，节奏都快得让人来不及反应。",
+        "reply_hot_take": {
+          "sarcastic": "FTX级别的跌幅，这次连个暴雷主角都没找到，就这么跌完了 😅",
+          "sharp_but_safe": "Strategy卖币开场，3900亿蒸发收尾——这周的节奏比大多数人的反应都快。",
+          "og_explainer": "FTX那次有明确导火索，这次来源只指向Strategy卖币和整体下挫。没有单一黑天鹅，归因反而更模糊。"
+        },
+        "used_facts": [
+          "Bitcoin, ether eye worst weekly rout since FTX collapse as cryptos shed $390 billion",
+          "A week that began with Strategy's bitcoin sale ended with one of the largest crypto market drawdowns in years."
+        ],
+        "should_not_claim": [
+          "不要把二手传播写成确定事实",
+          "不要写投资建议/喊单/价格预测",
+          "不要断言主力操盘/洗盘/爆空"
+        ]
+      },
+      "reviewer_result": {
+        "event_id": "real_v006_rss_8af16b71a993",
+        "review_decision": "APPROVE_FOR_DRYRUN",
+        "x_taste_score": 78,
+        "human_taste_score": 75,
+        "stance_strength_score": 72,
+        "reply_usefulness_score": 80,
+        "ai_taste_risk": "medium",
+        "boring_risk": "low",
+        "main_strengths": [
+          "personal_post有明确观点切入点：'情绪钟摆不在乎你上次被吓到没有'，不是纯粹复述事实",
+          "sarcastic reply角度锋利且接地气，'连个暴雷主角都没找到就这么跌完了'有传播性",
+          "og_explainer对比FTX有实质内容，归因模糊这个观察有价值"
+        ],
+        "main_weaknesses": [
+          "personal_post最后一句'节奏都快得让人来不及反应'略显空洞，没有落到具体判断",
+          "'历史级标签'这个表达稍显书面，降低了真人感",
+          "整体情绪偏旁观者视角，缺少一点个人立场或下一步判断"
+        ],
+        "required_fixes": [
+          "personal_post结尾可以加一句更有立场的收尾，而不是停在'来不及反应'这种描述性结论",
+          "aggressive reply可以稍微打磨，目前和personal_post重复度较高"
+        ],
+        "one_sentence_judgment": "有观点、有锋利点、sarcastic reply可直接用，主帖结尾稍弱但整体过线。"
+      },
+      "risk_result": {
+        "event_id": "real_v006_rss_8af16b71a993",
+        "risk_decision": "PASS",
+        "risk_level": "low",
+        "blocking_issues": [],
+        "warnings": [
+          "personal_post 中'开头是Strategy卖币'暗示因果关系，source_pack 仅称'a week that began with Strategy's bitcoin sale'，未明确Strategy卖币是下跌原因，建议措辞保持描述性而非因果性",
+          "reply_angle sarcastic 中'FTX级别的跌幅'表述略有夸大风险，原文为'worst weekly rout since FTX collapse'，属于时间比较而非量级等同，读者可能误解为规模相当"
+        ],
+        "safe_for_x_dryrun": true
+      }
+    }
+  ],
+  "safety": {
+    "x_published": false,
+    "x_api_connected": false
+  }
+}

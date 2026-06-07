@@ -1,0 +1,29 @@
+{
+  "task_id": "x_v2_007_real_hotspot_rewrite_and_rss_fallback",
+  "generated_at_utc": "2026-06-07T16:18:53+00:00",
+  "source_mode": "public_rss_real",
+  "allowlist": [
+    {
+      "name": "Coindesk",
+      "url": "https://www.coindesk.com/arc/outboundfeeds/rss/"
+    },
+    {
+      "name": "Cointelegraph",
+      "url": "https://cointelegraph.com/rss"
+    },
+    {
+      "name": "Decrypt",
+      "url": "https://decrypt.co/feed"
+    }
+  ],
+  "pulled_items_total": 60,
+  "filtered_last_24h": 11,
+  "selected_count": 5,
+  "latest_observed_at": "2026-06-07T16:14:08+00:00",
+  "errors": [],
+  "output_jsonl": "C:\\Users\\zhuo7\\Desktop\\X自动化\\x_automation\\data\\public_rss_event_pack_v007.jsonl",
+  "safety": {
+    "x_api_connected": false,
+    "x_published": false
+  }
+}

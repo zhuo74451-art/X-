@@ -338,6 +338,10 @@ def _call_openrouter_result(
         res["raw"] = raw_j
         res["raw_output_path"] = _write_raw_output(skill_name=skill_name, input_id=input_id, raw_text=content)
         return res
+    except TimeoutError:
+        res["error"] = "openrouter timeout"
+        res["raw"] = {"error_type": "TimeoutError"}
+        return res
     except urllib.error.HTTPError as e:
         status_code = getattr(e, "code", None)
         body_text = ""
@@ -388,6 +392,10 @@ def _call_openrouter_result(
         return res
     except (KeyError, ValueError) as e:
         res["error"] = f"openrouter response parse error: {e}"
+        return res
+    except Exception as e:
+        res["error"] = f"openrouter call failed: {type(e).__name__}"
+        res["raw"] = {"error_type": type(e).__name__, "message": str(e)[:300]}
         return res
 
 def _skill_prompt_path(skill_name: str) -> Path:

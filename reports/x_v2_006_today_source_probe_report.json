@@ -1,0 +1,66 @@
+{
+  "task_id": "x_v2_006_today_real_hotspot_dryrun",
+  "generated_at_utc": "2026-06-07T16:00:31+00:00",
+  "probes": [
+    {
+      "source_name": "integration_published",
+      "reachable": false,
+      "fetched_count": 0,
+      "latest_observed_at": "",
+      "error_or_blocked_reason": "http error: 502",
+      "selected_source_mode": "integration_published_real"
+    },
+    {
+      "source_name": "integration_ready",
+      "reachable": false,
+      "fetched_count": 0,
+      "latest_observed_at": "",
+      "error_or_blocked_reason": "http error: 502",
+      "selected_source_mode": "integration_ready_real"
+    },
+    {
+      "source_name": "http://127.0.0.1:8804/api/server-streams/news/latest",
+      "reachable": false,
+      "fetched_count": 0,
+      "latest_observed_at": "",
+      "error_or_blocked_reason": "<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>",
+      "selected_source_mode": "server_streams_real"
+    },
+    {
+      "source_name": "http://127.0.0.1:8804/api/server-streams/flash/latest",
+      "reachable": false,
+      "fetched_count": 0,
+      "latest_observed_at": "",
+      "error_or_blocked_reason": "<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>",
+      "selected_source_mode": "server_streams_real"
+    },
+    {
+      "source_name": "http://127.0.0.1:8804/api/server-streams/tg/latest",
+      "reachable": false,
+      "fetched_count": 0,
+      "latest_observed_at": "",
+      "error_or_blocked_reason": "<urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>",
+      "selected_source_mode": "server_streams_real"
+    },
+    {
+      "source_name": "article_hotspot_export",
+      "reachable": false,
+      "fetched_count": 0,
+      "latest_observed_at": "",
+      "error_or_blocked_reason": "no_readable_export_found",
+      "selected_source_mode": "article_hotspot_export_real"
+    }
+  ],
+  "selected_source": {
+    "source_name": "",
+    "selected_source_mode": "blocked_no_real_source",
+    "reachable": false,
+    "fetched_count": 0,
+    "latest_observed_at": "",
+    "blocked_reason": "BLOCKED_NO_REAL_SOURCE"
+  },
+  "safety": {
+    "x_api_connected": false,
+    "x_published": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "x_v2_006_today_real_hotspot_dryrun",
+  "generated_at_utc": "2026-06-07T16:00:31+00:00",
+  "status": "BLOCKED_NO_REAL_SOURCE",
+  "selected_source_mode": "blocked_no_real_source",
+  "source_name": "",
+  "blocked_reason": "BLOCKED_NO_REAL_SOURCE",
+  "event_count": 0
+}
