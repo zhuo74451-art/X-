@@ -1,0 +1,37 @@
+{
+  "config_id": "x_publish_safety_v009",
+  "version": "1.0.0",
+  "effective_from": "2026-06-08",
+  "mode": "test_account_only",
+  "max_posts_per_run": 1,
+  "allow_official_account": false,
+  "allow_links_in_first_run": false,
+  "allow_threads": false,
+  "allow_replies": false,
+  "dry_run_default": true,
+  "require_explicit_publish_env": true,
+  "required_env_to_publish": "X_V2_009_PUBLISH_NOW",
+  "required_env_value": "YES_PUBLISH_TEST_ACCOUNT_ONCE",
+  "selected_event_id": "real_v006_rss_f12050b18970",
+  "selected_title": "Meta is paying creators in Stablecoins. Spending them is someone else's problem",
+  "publish_content": {
+    "text": "Meta 用 USDC 给创作者发钱，这件事本身说明稳定币作为支付工具已经走出加密圈。\n\n但问题没变：收到 USDC 之后怎么花？\n\n出金链路、当地兑换、监管摩擦，这些都还是创作者自己的功课。\n\n发钱容易，用钱难。这个缺口一天没补上，所谓主流化就还是半截子。",
+    "source_url": "https://www.coindesk.com/opinion/2026/06/06/meta-is-paying-creators-in-stablecoins-spending-them-is-someone-else-s-problem",
+    "source_url_in_post": false,
+    "source_url_logged_only": true,
+    "no_reply": true,
+    "no_thread": true,
+    "no_link": true
+  },
+  "banned_event_ids": [
+    "real_v006_rss_d30124a258e4"
+  ],
+  "publish_history_path": "out/x_publish_v009/publish_status.json",
+  "safety": {
+    "official_account": false,
+    "x_published": false,
+    "daemon_started": false,
+    "production_write": false,
+    "article_project_modified": false
+  }
+}

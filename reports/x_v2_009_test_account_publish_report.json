@@ -1,0 +1,68 @@
+{
+  "task_id": "x_v2_009_test_account_one_shot_publisher",
+  "generated_at_utc": "2026-06-07T17:55:46+00:00",
+  "dry_run": true,
+  "ready_for_single_test_account_post": true,
+  "selected_event_id": "real_v006_rss_f12050b18970",
+  "selected_title": "Meta is paying creators in Stablecoins. Spending them is someone else's problem",
+  "content_hash": "37f9a0769fc02f3a",
+  "source_url_in_post": false,
+  "source_url_logged_only": true,
+  "attempted": true,
+  "published": false,
+  "tweet_id": "",
+  "tweet_url": "",
+  "blocker": "",
+  "gates": [
+    {
+      "gate": "publish_env",
+      "passed": true,
+      "detail": "X_V2_009_PUBLISH_NOW=NOT_SET -> dry_run=True"
+    },
+    {
+      "gate": "x_api_credentials",
+      "passed": false,
+      "detail": "missing=['X_API_KEY', 'X_API_SECRET', 'X_ACCESS_TOKEN', 'X_ACCESS_TOKEN_SECRET']"
+    },
+    {
+      "gate": "selected_event_id",
+      "passed": true,
+      "detail": "event_id=real_v006_rss_f12050b18970 is_meta_usdc=True"
+    },
+    {
+      "gate": "not_banned_event",
+      "passed": true,
+      "detail": "banned_ids=['real_v006_rss_d30124a258e4']"
+    },
+    {
+      "gate": "content_hash_not_previously_published",
+      "passed": true,
+      "detail": "content_hash=37f9a0769fc02f3a previously_published=False"
+    },
+    {
+      "gate": "source_url_not_in_post",
+      "passed": true,
+      "detail": "source_url_in_post=False"
+    },
+    {
+      "gate": "official_account",
+      "passed": true,
+      "detail": "official_account=false"
+    },
+    {
+      "gate": "post_count_this_run",
+      "passed": true,
+      "detail": "post_count_this_run=1 <= max=1"
+    }
+  ],
+  "safety": {
+    "official_account": false,
+    "x_published": false,
+    "x_api_connected": false,
+    "post_count_this_run": 1,
+    "daemon_started": false,
+    "production_write": false,
+    "article_project_modified": false,
+    "credential_exposed": false
+  }
+}
